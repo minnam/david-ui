@@ -1,0 +1,26 @@
+{
+  "name": "david-ui",
+  "version": "1.0.0",
+  "description": "React Components for Redux-Form",
+  "main": "dist/david-ui.min.js",
+  "scripts": {
+    "build": "rollup -c -o dist/david-ui.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Min Nam",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "react": "^16.6.3",
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "4.0.0-beta.8",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "rollup-plugin-uglify-es": "0.0.1",
+    "uglify-js": "^3.4.9"
+  }
+}
