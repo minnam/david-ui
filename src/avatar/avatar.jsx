@@ -11,8 +11,9 @@
  */
 import React from 'react'
 import { stylesheet } from 'typestyle'
+
 /* Common ======================================================================================= */
-// import THEME from '../../common/theme'
+import THEME from '../theme.js'
 
 /* Constants ==================================================================================== */
 const CURRENT_TIME = new Date().getHours()
@@ -41,14 +42,14 @@ const Avatar = (props: {
   } = props
   return (
     <div
-      className={STYLES.avatar}
+      className={CLASSNAMES.avatar}
       style={{width: fullWidth && '100%'}}
     >
-      <div className={STYLES.image}>
+      <div className={CLASSNAMES.image}>
         <img src={IMAGES[type] ? IMAGES[type] : IMAGES.default} />
       </div>
-      <div className={STYLES.message}>
-        <div className={STYLES.messageTail} />
+      <div className={CLASSNAMES.message}>
+        <div className={CLASSNAMES.messageTail} />
         {
           (() => {
             if (greeting) {
@@ -70,7 +71,7 @@ const Avatar = (props: {
 export default Avatar
 
 /* Styles ======================================================================================= */
-const STYLES = stylesheet({
+const CLASSNAMES = stylesheet({
   avatar: {
     alignItems: 'center',
     display: 'flex',
@@ -90,7 +91,7 @@ const STYLES = stylesheet({
     },
   },
   message: {
-    // background: THEME.background.primary,
+    background: THEME.background.primary,
     boxShadow: '1px 1px 5px 1px rgba(0,0,0,0.1)',
     display: 'inline-block',
     fontSize: 14,
@@ -102,7 +103,7 @@ const STYLES = stylesheet({
     width: 'calc(100% - 89px)',
   },
   messageTail: {
-    // background: THEME.background.primary,
+    background: THEME.background.primary,
     borderBottom: '1px solid rgba(0,0,0,0.1)',
     borderLeft: '1px solid rgba(0,0,0,0.1)',
     height: 15,

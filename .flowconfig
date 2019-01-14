@@ -1,0 +1,12 @@
+[ignore]
+.*/dist/.*
+[include]
+
+[libs]
+flow-typed
+
+[lints]
+
+[options]
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+[strict]
