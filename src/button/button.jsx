@@ -9,7 +9,6 @@
  *
  * @flow
  */
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { classes, stylesheet } from 'typestyle'
