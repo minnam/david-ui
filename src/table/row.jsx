@@ -86,7 +86,7 @@ class Row extends Component<*, *> {
     super (props)
     this.state = {
       actionToggled: false,
-      toggled: this.props.toggled
+      toggled: props.toggled
     }
   }
 
