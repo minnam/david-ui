@@ -26,7 +26,7 @@ import IconButton from './icon-button/icon-button'
 import LineBreak from './line-break/line-break'
 import Loading from './loading/loading'
 import QuickAction from './quick-action/quick-action'
-// import Quill from './quill/quill'
+import Quill from './quill/quill'
 import Roll from './roll/roll'
 import Subheader from './subheader/subheader'
 import Subtitle from './subtitle/subtitle'
@@ -99,7 +99,7 @@ export {
   LineBreak,
   Loading,
   ModalDialogPanel,
-  // Quill,
+  Quill,
   QuickAction,
   Roll,
   Row,

@@ -9,7 +9,7 @@
  * @flow
  */
 import React from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 import qs from 'qs'
 import type { FieldProps } from 'redux-form'
 import { classes, stylesheet } from 'typestyle'
@@ -246,11 +246,11 @@ export default class DebounceInput extends React.Component<*,*> {
     /**
      * This use to be ${searchKey}=value but changed due to how we deal with multiple search keys
      */
-    // axios.get(`${url}?${qs.stringify({ search: [value] })}`).then(req => {
-    //   this.setState({
-    //     data: req.data[searchKey].slice(0,5)
-    //   })
-    // })
+    axios.get(`${url}?${qs.stringify({ search: [value] })}`).then(req => {
+      this.setState({
+        data: req.data[searchKey].slice(0,5)
+      })
+    })
   }
 }
 
