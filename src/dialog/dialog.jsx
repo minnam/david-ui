@@ -9,7 +9,6 @@
  */
 
 import * as React from 'react'
-import { connect } from 'react-redux'
 import { style, classes } from 'typestyle'
 
 /* Components =================================================================================== */
@@ -176,7 +175,7 @@ export class DialogPanel extends React.Component<*, *> {
 }
 
 /* <Dialog /> =================================================================================== */
-class Dialog extends React.Component<*, *> {
+export default class Dialog extends React.Component<*, *> {
   props: {
     contents: [],
     dialog: {
@@ -334,12 +333,3 @@ export const CLASSNAMES = {
     })
   }
 }
-
-/* Exports ====================================================================================== */
-function mapStateToProps ({ global }) {
-  return { dialog: global.dialog }
-}
-
-export default connect(
-  mapStateToProps,
-) (Dialog)
