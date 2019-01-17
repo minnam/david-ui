@@ -142,7 +142,8 @@ export default class DateTimePicker extends React.Component<* , *> {
    */
   constructor (props: *) {
     super(props)
-    const { input } = this.props
+    const { input } = props
+    
     this.state = {
       hovered: false,
       toggled: false,
