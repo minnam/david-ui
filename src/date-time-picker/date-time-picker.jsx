@@ -27,7 +27,7 @@ import Calendar from '../calendar/calendar'
 
 /* <DateTimePicker /> =========================================================================== */
 export default class DateTimePicker extends React.Component<* , *> {
-  this.state = {
+  state = {
     toggled: false
   }
   props: {
