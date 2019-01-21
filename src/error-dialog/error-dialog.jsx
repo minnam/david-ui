@@ -9,10 +9,8 @@
 import React from 'react'
 
 /* Components =================================================================================== */
-import {
-  ANIMATIONS,
-  Button
-} from '../'
+import ANIMATIONS from '../utils/animations'
+import Button from '../button/button'
 
 class ErrorDialog extends React.Component<*, *> {
   state = {

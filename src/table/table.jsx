@@ -14,10 +14,8 @@ import { classes, stylesheet } from 'typestyle'
 import GLOBAL_CLASSNAMES from '../classnames'
 
 /* Components =================================================================================== */
-import {
-  ANIMATIONS,
-  Col
-} from '../'
+import ANIMATIONS from '../utils/animations'
+import Col from '../table/col'
 
 /* Types ======================================================================================== */
 import type { Props as SearchProps } from './search'

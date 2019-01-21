@@ -16,7 +16,7 @@ import { stylesheet } from 'typestyle'
 import 'react-quill/dist/quill.snow.css'
 
 /* Components =================================================================================== */
-import { FieldWrapper } from '..'
+import FieldWrapper from '../field-wrapper/field-wrapper'
 
 /* Constants ==================================================================================== */
 const MODULES = {
@@ -80,6 +80,7 @@ const Quill = (props: {
     </FieldWrapper>
   )
 }
+
 export default Quill
 
 /* Styles ======================================================================================= */

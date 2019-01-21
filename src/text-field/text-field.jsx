@@ -13,7 +13,7 @@ import React from 'react'
 import { classes, stylesheet } from 'typestyle'
 
 /* Components =================================================================================== */
-import { FieldWrapper } from '..'
+import FieldWrapper from '../field-wrapper/field-wrapper'
 
 /* <TextField /> ================================================================================ */
 const TextField = (props: {

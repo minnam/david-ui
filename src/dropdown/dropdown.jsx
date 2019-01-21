@@ -12,13 +12,13 @@ import type { FieldProps } from 'redux-form'
 import { cssRule } from 'typestyle'
 import Select from 'react-select'
 // $FlowFixMe
-// import 'react-select/dist/react-select.css'
+import 'react-select/dist/react-select.css'
 
 /* Commons =================================================================================== */
 import THEME from '../theme'
 
 /* Components =================================================================================== */
-import { FieldWrapper } from '..'
+import FieldWrapper from '../field-wrapper/field-wrapper'
 
 /* <DropDown /> ================================================================================= */
 export default class DropDown extends React.Component<*, *> {

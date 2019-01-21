@@ -17,7 +17,7 @@ import { cssRule } from 'typestyle'
 import THEME from '../theme'
 
 /* Components =================================================================================== */
-import { FieldWrapper } from '..'
+import FieldWrapper from '../field-wrapper/field-wrapper'
 
 /* <GeosuggestField /> ========================================================================== */
 const GeosuggestField = (props: {

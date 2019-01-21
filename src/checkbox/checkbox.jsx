@@ -13,7 +13,7 @@ import type { FieldProps } from 'redux-form'
 import { classes, stylesheet } from 'typestyle'
 
 /* Components =================================================================================== */
-import { FieldWrapper } from '..'
+import FieldWrapper from '../field-wrapper/field-wrapper'
 
 /* <Checkbox /> ================================================================================= */
 export default class Checkbox extends React.Component<*, *> {
@@ -37,7 +37,14 @@ export default class Checkbox extends React.Component<*, *> {
   state = {
     hover: false,
     active: false,
-    checked: this.props.meta.initial
+  }
+
+  componentWillMount () {
+    if (this.props && this.props.meta) {
+      this.setState({
+        checked: this.props.meta.initial
+      })
+    }
   }
 
   render () {

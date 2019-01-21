@@ -14,10 +14,8 @@ import React from 'react'
 import { classes, stylesheet } from 'typestyle'
 
 /* Components =================================================================================== */
-import {
-  ANIMATIONS,
-  Avatar
-} from '..'
+import ANIMATIONS from '../utils/animations'
+import Avatar from '../avatar/avatar'
 
 /* <Loading/> =================================================================================== */
 const Loading = (props: {

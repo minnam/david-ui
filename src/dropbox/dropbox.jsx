@@ -14,7 +14,10 @@ import { Field } from 'redux-form'
 import Dropzone from 'react-dropzone'
 
 /* Components =================================================================================== */
-import { Button, DropdownList, FieldWrapper, validation } from '..'
+import Button from '../button/button'
+import DropdownList from '../dropdown/dropdown'
+import FieldWrapper from '../field-wrapper/field-wrapper'
+import valiation from '../validation'
 
 /* Constants ==================================================================================== */
 const ATTACHMENT_TYPES = [

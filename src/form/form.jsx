@@ -15,12 +15,10 @@ import 'react-widgets/dist/css/react-widgets.css'
 import GLOBAL_CLASSNAMES from '../classnames'
 
 /* Components =================================================================================== */
-import {
-  ANIMATIONS,
-  IconButton,
-  Toolbar,
-  ToolbarButton,
-} from '../'
+import ANIMATIONS from '../utils/animations'
+import IconButton from '../icon-button/icon-button'
+import Toolbar from '../toolbar/toolbar'
+import ToolbarButton from '../toolbar/toolbar-button'
 
 export default class Form extends Component {
   constructor (props) {

@@ -12,10 +12,8 @@ import * as React from 'react'
 import { style, classes } from 'typestyle'
 
 /* Components =================================================================================== */
-import {
-  ANIMATIONS,
-  Button
-} from '..'
+import ANIMATIONS from '../utils/animations'
+import Button from '../button/button'
 
 /* <DialogTitle /> ============================================================================== */
 export const DialogTitle = (props: {

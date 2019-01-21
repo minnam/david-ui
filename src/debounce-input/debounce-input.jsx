@@ -15,7 +15,7 @@ import type { FieldProps } from 'redux-form'
 import { classes, stylesheet } from 'typestyle'
 
 /* Components =================================================================================== */
-import { FieldWrapper } from '..'
+import FieldWrapper from '../field-wrapper/field-wrapper'
 
 /* <TextField /> ================================================================================ */
 export default class DebounceInput extends React.Component<*,*> {

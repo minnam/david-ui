@@ -14,7 +14,7 @@ import { stylesheet, classes } from 'typestyle'
 import THEME from '../theme.js'
 
 /* Components =================================================================================== */
-import { Button } from '..'
+import Button from '../button/button'
 
 /* <CardSection /> ============================================================================== */
 export default class CardSection extends Component<*, *> {
@@ -115,7 +115,7 @@ const CLASSNAMES = stylesheet({
   cardHeading: {
     backgroundColor: 'white',
     padding: '10px 15px',
-    height: 40,
+    height: 13,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'

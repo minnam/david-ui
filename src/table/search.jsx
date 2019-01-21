@@ -13,7 +13,7 @@ import React, { Component, Fragment } from 'react'
 import { classes, stylesheet } from 'typestyle'
 
 /* Components =================================================================================== */
-import { IconButton } from '..'
+import IconButton from '../icon-button/icon-button'
 
 /* <Search /> =================================================================================== */
 export type Props = {

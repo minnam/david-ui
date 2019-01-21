@@ -9,6 +9,11 @@ export const TEST_CARD_MODEL = {
         placeHolder: 'Enter Name',
         type: 'TextField',
       },
+      {
+        label: 'Description',
+        name: 'description',
+        type: 'Quill'
+      }
     ]
   }
 }

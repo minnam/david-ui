@@ -16,7 +16,7 @@ import { classes, stylesheet } from 'typestyle'
 import THEME from '../theme'
 
 /* Components =================================================================================== */
-import { ANIMATIONS } from '..'
+import ANIMATIONS from '../utils/animations'
 
 /* <Subheader /> ================================================================================ */
 const Subheader = (props: {

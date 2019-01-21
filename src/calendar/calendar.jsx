@@ -13,7 +13,7 @@ import React, { Component } from 'react'
 import { stylesheet, classes } from 'typestyle'
 
 /* Common ======================================================================================= */
-import { formatDate } from '..'
+import { formatDate } from '../utils/format'
 import THEME from '../theme.js'
 
 /* Components =================================================================================== */

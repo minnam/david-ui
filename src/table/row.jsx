@@ -15,7 +15,8 @@ import type { ChildrenArray, Element } from 'react'
 
 /* Components =================================================================================== */
 import Col from './col'
-import { IconButton, Toggle } from '..'
+import IconButton from '../icon-button/icon-button'
+import Toggle from '../toggle/toggle'
 
 /* <Row /> ====================================================================================== */
 class Row extends Component<*, *> {

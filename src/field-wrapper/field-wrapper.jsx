@@ -13,7 +13,7 @@ import React from 'react'
 import { classes, stylesheet } from 'typestyle'
 
 /* Components =================================================================================== */
-import { ANIMATIONS } from '..'
+import ANIMATIONS from '../utils/animations'
 
 /* <FieldWrapper /> ============================================================================= */
 const FieldWrapper = (props: {

@@ -13,7 +13,7 @@
 import * as React from 'react'
 
 /* Components =================================================================================== */
-import { Button } from '../'
+import Button from '../button/button'
 
 /* <ToolbarButton /> ============================================================================ */
 const ToolbarButton = (props: {

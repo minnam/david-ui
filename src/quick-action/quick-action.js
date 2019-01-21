@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { classes, stylesheet } from 'typestyle'
 
 /* Constants ==================================================================================== */
-import { ANIMATIONS } from '../'
+import ANIMATIONS from '../utils/animations'
 import THEME from '../theme'
 
 export default class QuickAction extends Component {

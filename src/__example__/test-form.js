@@ -6,10 +6,27 @@ import {
 } from 'redux-form'
 import { connect } from 'react-redux'
 
-import { Cards, Dropbox, Form, TextField, FormSection } from '../'
+import { Cards, Dropbox, Form, TextField, FormSection, DropdownList, validation } from '../'
 import { getName } from './actions'
 
 import { TEST_CARD_MODEL } from './card-model'
+export const WEATHER_TYPES = [
+  { label: 'Sunny', value: 'Sunny' },
+  { label: 'Rainy', value: 'Rainy' },
+  { label: 'Overcast', value: 'Overcast' },
+  { label: 'Partly cloudy', value: 'Partly cloudy' },
+  { label: 'Light rain', value: 'Light rain' },
+  { label: 'Foggy', value: 'Foggy' },
+  { label: 'Shower', value: 'Shower' },
+  { label: 'Snow', value: 'Snow' },
+  { label: 'Windy', value: 'Windy' },
+  { label: 'Misty', value: 'Misty' },
+  { label: 'Hail', value: 'Hail' },
+  { label: 'Heavy snow', value: 'Heavy snow' },
+  { label: 'Rain/Snow', value: 'Rain/Snow' },
+  { label: 'Strong wind', value: 'Strong wind' },
+  { label: 'Thunderstorm', value: 'Thunderstorm' },
+]
 
 class TestForm extends Component {
   componentDidMount () {
@@ -20,6 +37,15 @@ class TestForm extends Component {
     console.log(this.props)
     return <Form>
       <FormSection>
+        <Field
+          label='Weather AM'
+          name='weatherAm'
+          type='text'
+          component={DropdownList}
+          data={WEATHER_TYPES}
+          validate={[validation.required]}
+          isRequired
+        />
         <FieldArray
           label='Attachments'
           name='workCompletedAttachments'

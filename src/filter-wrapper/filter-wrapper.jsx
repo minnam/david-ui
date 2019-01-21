@@ -12,11 +12,9 @@ import { Field } from 'redux-form'
 import { stylesheet } from 'typestyle'
 
 /* Components =================================================================================== */
-import {
-  DropdownList,
-  Button,
-  validation
-} from '..'
+import DropdownList from '../dropdown/dropdown'
+import Button from '../button/button'
+import validation from '../validation'
 
 /* Constants  =================================================================================== */
 const FILTER_OPTIONS = [
@@ -28,7 +26,7 @@ const FILTER_OPTIONS = [
 ]
 
 /* <FilterWrapper /> ============================================================================ */
-export const FilterWrapper = (props: {
+export default (props: {
   children: *,
   isNumeric: *,
   values: *,

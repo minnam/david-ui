@@ -13,7 +13,7 @@ import React from 'react'
 import { stylesheet } from 'typestyle'
 
 /* Components =================================================================================== */
-import { Button } from '..'
+import Button from '../button/button'
 
 /* <TableNav /> ================================================================================= */
 const TableNav = (props: {

@@ -13,7 +13,7 @@ import React from 'react'
 import { classes, stylesheet } from 'typestyle'
 
 /* Component ==================================================================================== */
-import { Button } from '..'
+import Button from '../button/button'
 
 /* Toggle ======================================================================================= */
 const Toggle = (props: {

@@ -1,12 +1,11 @@
 /**
- * form/index
- *
  * Copyright 2018 Ventana Technology Services
  *
  * Team:
  *  Min Nam, mnam@ventanaconstruction.com, hi@minnam.io
  *  Derek Hirotsu, dhirotsu@ventanaconstruction.com
  */
+import style from './style'
 import Avatar from './avatar/avatar'
 import Button from './button/button'
 import Cards from './cards/cards'
@@ -26,7 +25,7 @@ import IconButton from './icon-button/icon-button'
 import LineBreak from './line-break/line-break'
 import Loading from './loading/loading'
 import QuickAction from './quick-action/quick-action'
-import Quill from './quill/quill'
+import Quill from './quill/quill.jsx'
 import Roll from './roll/roll'
 import Subheader from './subheader/subheader'
 import Subtitle from './subtitle/subtitle'
@@ -50,7 +49,7 @@ import {
   Table,
   TableNav,
 } from './table'
-import { FilterWrapper } from './filter-wrapper/filter-wrapper'
+import FilterWrapper from './filter-wrapper/filter-wrapper'
 import ANIMATIONS from './utils/animations'
 import {
   MONTH_NAMES,
@@ -64,6 +63,8 @@ import {
   normalizePhone,
 } from './utils/format'
 import THEME from './theme.js'
+
+style()
 
 export {
   ANIMATIONS,

@@ -15,10 +15,8 @@ import 'react-widgets/dist/css/react-widgets.css'
 import GLOBAL_CLASSNAMES from '../classnames'
 
 /* Components =================================================================================== */
-import {
-  ANIMATIONS,
-  LineBreak
-} from '..'
+import ANIMATIONS from '../utils/animations'
+import LineBreak from '../line-break/line-break'
 import { CLASSNAMES as TABLE_CLASSNAMES } from '../table/table'
 
 export default class FormSection extends Component {

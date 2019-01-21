@@ -27,7 +27,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      }
+      },
+      /** images and fonts */
+      { test: /\.(gif|ttf|eot|svg|woff2?)$/, loader: 'url-loader?name=[name].[ext]' }
     ]
   }
 }

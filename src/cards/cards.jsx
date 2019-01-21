@@ -16,22 +16,22 @@ import { stylesheet } from 'typestyle'
 import THEME from '../theme.js'
 
 /* Components =================================================================================== */
+import Button from '../button/button'
 import CardSection from './card-section'
-import {
-  Button,
-  Checkbox,
-  DateTimePicker,
-  DebounceInput,
-  Dropbox,
-  DropdownList,
-  FilterWrapper,
-  FormSection,
-  QuickAction,  
-  Roll,
-  TextField,
-} from '..'
+import Checkbox from '../checkbox/checkbox'
+import DateTimePicker from '../date-time-picker/date-time-picker'
+import DebounceInput from '../debounce-input/debounce-input'
+import Dropbox from '../dropbox/dropbox'
+import DropdownList from '../dropdown/dropdown'
+import FilterWrapper from '../filter-wrapper/filter-wrapper'
+import FormSection from '../form/form-section'
+import QuickAction from '../quick-action/quick-action'
 import Quill from '../quill/quill'
+import Roll from '../roll/roll'
+import TextField from '../text-field/text-field'
+
 import { CHECKBOX_FILTER_ROLL_MODEL } from './checkbox-filter-roll-fields'
+
 
 /* Types ======================================================================================== */
 type CardModelType = [
@@ -87,6 +87,8 @@ type CardPropType = {
   onDrop: () => void,
   resetFilterField: (field: string) => void
 } & FieldProps
+
+console.log(Quill)
 
 /* <Cards /> ==================================================================================== */
 class Cards extends Component<*, *> {
@@ -452,7 +454,7 @@ class Cards extends Component<*, *> {
             key={key2}
           />
         )
-      case 'Quill':
+      case 'Quill':        
         return (
           <Field
             component={Quill}
@@ -545,7 +547,7 @@ const CLASSNAMES = stylesheet({
   cardHeading: {
     backgroundColor: 'white',
     padding: '10px 15px',
-    height: 40,
+    height: 13,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'

@@ -13,10 +13,8 @@ import { Field } from 'redux-form'
 import type { FieldProps } from 'redux-form'
 
 /* Components =================================================================================== */
-import {
-  FieldWrapper,
-  TextField
-} from '../'
+import FieldWrapper from '../field-wrapper/field-wrapper'
+import TextField from '../text-field/text-field'
 
 /* <Roll /> ================================================================================= */
 export default class Roll extends React.Component<*, *> {

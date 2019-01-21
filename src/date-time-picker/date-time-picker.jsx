@@ -18,12 +18,10 @@ import GLOBAL_CLASSNAMES from '../classnames'
 import THEME from '../theme'
 
 /* Components =================================================================================== */
-import {
-  ANIMATIONS,
-  FieldWrapper,
-  formatDate,
-} from '..'
+import ANIMATIONS from '../utils/animations'
 import Calendar from '../calendar/calendar'
+import FieldWrapper from '../field-wrapper/field-wrapper'
+import { formatDate } from '../utils/format'
 
 /* <DateTimePicker /> =========================================================================== */
 export default class DateTimePicker extends React.Component<* , *> {
