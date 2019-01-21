@@ -26,11 +26,11 @@ import {
   DropdownList,
   FilterWrapper,
   FormSection,
-  QuickAction,
-  Quill,
+  QuickAction,  
   Roll,
   TextField,
 } from '..'
+import Quill from '../quill/quill'
 import { CHECKBOX_FILTER_ROLL_MODEL } from './checkbox-filter-roll-fields'
 
 /* Types ======================================================================================== */
