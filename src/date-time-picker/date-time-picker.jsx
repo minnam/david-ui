@@ -27,9 +27,6 @@ import Calendar from '../calendar/calendar'
 
 /* <DateTimePicker /> =========================================================================== */
 export default class DateTimePicker extends React.Component<* , *> {
-  state = {
-    toggled: false
-  }
   props: {
     isRequired: boolean,
     /** Input element */
@@ -42,8 +39,16 @@ export default class DateTimePicker extends React.Component<* , *> {
     displayTime: boolean
   } & FieldProps
 
+  states: {
+    toggled: boolean
+  }
+
   /* Class Types ================================================================================ */
   debounceID: TimeoutID | null
+
+  state = {
+    toggled: false
+  }
 
   /**
    * Renders the input field and Calendar gui as children of a FieldWrapper component.
@@ -143,7 +148,7 @@ export default class DateTimePicker extends React.Component<* , *> {
   constructor (props: *) {
     super(props)
     const { input } = props
-    
+
     this.state = {
       hovered: false,
       toggled: false,

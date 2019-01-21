@@ -69,7 +69,7 @@ export default class Dropbox extends React.Component<*, *> {
           }}
         >
           {
-            (() => {
+            () => {
               if (!files.length) {
                 return <span className={CLASSNAMES.instruction}>
                   Drop images here or click to upload images
@@ -145,7 +145,7 @@ export default class Dropbox extends React.Component<*, *> {
                   }
                 </div>
               )
-            })()
+            }
           }
         </Dropzone>
       </FieldWrapper>

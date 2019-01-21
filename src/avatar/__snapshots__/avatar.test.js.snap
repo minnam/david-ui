@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar should render correctly 1`] = `
+<div
+  className="avatar_f1vr1t4w"
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="image_frmew96"
+  >
+    <img
+      src="/images/david.png"
+    />
+  </div>
+  <div
+    className="message_f1xoohbz"
+  >
+    <div
+      className="messageTail_flhpr2n"
+    />
+    Good evening! 
+  </div>
+</div>
+`;

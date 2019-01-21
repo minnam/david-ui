@@ -27,7 +27,6 @@ import {
   FilterWrapper,
   FormSection,
   QuickAction,
-  // Quill,
   Roll,
   TextField,
 } from '..'
@@ -143,16 +142,17 @@ class Cards extends Component<*, *> {
           onClick={() => {
             /** Scroll to bottom */
             const formBoundingRect = this.parent.form.getBoundingClientRect()
-            window.scrollTo(0, window.scrollY + formBoundingRect.y + formBoundingRect.height - window.innerHeight / 2)
-
+            window.scrollTo(0, window.scrollY + formBoundingRect.y + formBoundingRect.height - window.innerHeight / 2)            
             fields.push({
               type: key,
               value: {}
             })
+            console.log(key)
           }}
         />
       )
     }
+
     return (
       <FormSection
         title={label}
