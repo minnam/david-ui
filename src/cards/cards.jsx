@@ -547,7 +547,7 @@ const CLASSNAMES = stylesheet({
   cardHeading: {
     backgroundColor: 'white',
     padding: '10px 15px',
-    height: 13,
+    height: 40,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'

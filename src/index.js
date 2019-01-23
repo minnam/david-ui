@@ -63,12 +63,14 @@ import {
   normalizePhone,
 } from './utils/format'
 import THEME from './theme.js'
+import GLOBAL_CLASSNAMES from './classnames'
 
 style()
 
 export {
   ANIMATIONS,
   MONTH_NAMES,
+  GLOBAL_CLASSNAMES,
   formatBool,
   formatDate,
   formatFloat,

@@ -324,7 +324,7 @@ export const CLASSNAMES = stylesheet({
     float: 'right',
     $nest: {
       '& tbody': {
-        // boxShadow: '1px 1px 1px 1px rgba(0,0,0,0.05)'
+        background: 'white'
       },
       '& thead > tr > th': {
         color: 'rgb(41, 54, 66)'
@@ -335,10 +335,37 @@ export const CLASSNAMES = stylesheet({
         height: 35,
         lineHeight: '30px',
         padding: '12px 15px',
+        textAlign: 'left',
         verticalAlign: 'top !important',
         '@media print': {
           padding: '0px 15px !important'
         }
+      },
+      '& tr': {        
+        width: '100%',
+      },
+      '& th': {
+        paddingLeft: 15,
+        paddingTop: 0,
+        paddingBottom: 15
+      },
+      '& th.fixed-th': {
+        paddingTop: '11px !important',
+        paddingBottom: '3px !important'
+      },
+      '& th.fixed-th > span': {
+        display: 'inline-block',
+        textAlign: 'left',
+        width: '100%',
+      },
+      '& th > span': {
+        display: 'inline-block',
+        textAlign: 'left',
+        width: '100%',
+      },
+      '& tbody > tr > td.pr': {
+        color: 'rgb(60,60,60) !important',
+        fontWeight: 600
       },
       '@media print': {
         marginBottom: '15px !important'
@@ -379,6 +406,8 @@ export const CLASSNAMES = stylesheet({
     paddingBottom: '3px !important'
   }
 })
+
+
 
 /* Export ======================================================================================= */
 export default Table

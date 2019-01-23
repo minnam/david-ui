@@ -1,4 +1,7 @@
 src/
+tmp/
+node_modules/
 .npmignore
 .babelrc
 webpack.config.js
+NOTE.md
