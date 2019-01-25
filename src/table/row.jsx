@@ -8,7 +8,7 @@
  * @flow
  */
 import React, { Component, Fragment } from 'react'
-import { classes, stylesheet } from 'typestyle'
+import { classes, cssRule, stylesheet } from 'typestyle'
 
 /* Types ======================================================================================== */
 import type { ChildrenArray, Element } from 'react'
@@ -188,6 +188,17 @@ const CLASSNAMES = stylesheet({
   rowData: {
     position: 'relative'
   }
+})
+
+cssRule('action-dialog', {
+  width: 120,
+  right: 0,
+  top: 0,
+  position: 'absolute',
+  background: 'white',
+  boxShadow: '1px 1px 1px 1px rgba(0,0,0,0.1)',
+  padding: '10px 0 !important',
+  zIndex: 2000
 })
 
 /* Export ======================================================================================= */

@@ -13,7 +13,7 @@ import React from 'react'
 import { stylesheet, classes } from 'typestyle'
 
 /* Common ======================================================================================= */
-import THEME from '../theme.js'
+import THEME from '../theme-handler.js'
 
 /* Day ========================================================================================== */
 const Day = (props: {
@@ -60,15 +60,15 @@ const CLASSNAMES = stylesheet({
     width: '50px',
     $nest: {
       '&:hover': {
-        border: `3px solid ${THEME.primary}`
+        border: `3px solid ${THEME.colors.primary}`
       }
     }
   },
   selected: {
-    border: `3px solid ${THEME.primary}`,
+    border: `3px solid ${THEME.colors.primary}`,
     fontWeight: 700,
   },
   notInMonth: {
-    color: THEME.text.tertiary,
+    color: THEME.colors.text.tertiary,
   }
 })

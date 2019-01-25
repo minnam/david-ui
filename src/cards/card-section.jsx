@@ -11,7 +11,7 @@ import React, { Component } from 'react'
 import { stylesheet, classes } from 'typestyle'
 
 /* Common ======================================================================================= */
-import THEME from '../theme.js'
+import THEME from '../theme-handler.js'
 
 /* Components =================================================================================== */
 import Button from '../button/button'

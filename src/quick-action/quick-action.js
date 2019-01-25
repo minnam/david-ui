@@ -3,7 +3,7 @@ import { classes, stylesheet } from 'typestyle'
 
 /* Constants ==================================================================================== */
 import ANIMATIONS from '../utils/animations'
-import THEME from '../theme'
+import THEME from '../theme-handler'
 
 export default class QuickAction extends Component {
   state = {

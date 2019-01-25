@@ -61,8 +61,9 @@ import {
   formatUnit,
   monthDiff,
   normalizePhone,
+  normalizeTime
 } from './utils/format'
-import THEME from './theme.js'
+import THEME from './theme-handler.js'
 import GLOBAL_CLASSNAMES from './classnames'
 
 style()
@@ -79,6 +80,7 @@ export {
   formatUnit,
   monthDiff,
   normalizePhone,
+  normalizeTime,
   THEME,
   Avatar,
   Button,

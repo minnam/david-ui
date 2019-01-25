@@ -14,7 +14,7 @@ import { stylesheet, classes } from 'typestyle'
 
 /* Common ======================================================================================= */
 import { formatDate } from '../utils/format'
-import THEME from '../theme.js'
+import THEME from '../theme-handler.js'
 
 /* Components =================================================================================== */
 import Day from './day'
@@ -173,7 +173,7 @@ export default class Calendar extends Component<* , *> {
 const CLASSNAMES = stylesheet({
   navbarBase: {
     alignItems: 'center',
-    background: THEME.background.secondary,
+    background: THEME.colors.background.secondary,
     display: 'flex',
     height: '50px',
     justifyContent: 'space-between',
@@ -183,7 +183,7 @@ const CLASSNAMES = stylesheet({
     cursor: 'pointer',
     $nest: {
       '&:hover': {
-        color: THEME.primary,
+        color: THEME.colors.primary,
       }
     }
   },
@@ -200,6 +200,6 @@ const CLASSNAMES = stylesheet({
     width: '50px',
   },
   dayLabelBase: {
-    borderBottom: `1px solid ${THEME.borders.general}`,
+    borderBottom: `1px solid ${THEME.colors.borders.primary}`,
   },
 })

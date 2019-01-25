@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
 import { classes, stylesheet } from 'typestyle'
 
 /* Common ======================================================================================= */
-import THEME from '../theme'
+import THEME from '../theme-handler'
 
 /* Button ======================================================================================= */
 const Button = (props: {
@@ -176,24 +176,24 @@ export const CLASSNAMES = stylesheet({
     }
   },
   primary: {
-    background: THEME.primary,
-    color: THEME.background.primary,
+    background: THEME.colors.primary,
+    color: THEME.colors.background.primary,
     $nest: {
       '&:hover': {
         background: 'rgba(26,179, 148, 0.7) radial-gradient(circle, transparent 1%, rgba(26,179,148,0.7) 1%) center/15000%',
-        color: THEME.background.primary,
+        color: THEME.colors.background.primary,
       },
       '&:active': {
-        background: THEME.primary,
+        background: THEME.colors.primary,
         backgroundSize: '100%',
         boxShadow: 'none',
-        color: THEME.background.primary,
+        color: THEME.colors.background.primary,
         transition: 'background 0s',
       },
     }
   },
   secondary: {
-    background: THEME.background.primary,
+    background: THEME.colors.background.primary,
     boxShadow: 'none',
     color: 'rgb(103,103,103)',
     $nest: {

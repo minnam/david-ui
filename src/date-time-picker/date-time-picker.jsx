@@ -15,7 +15,7 @@ import type { FieldProps } from 'redux-form'
 
 /* Common ======================================================================================= */
 import GLOBAL_CLASSNAMES from '../classnames'
-import THEME from '../theme'
+import THEME from '../theme-handler'
 
 /* Components =================================================================================== */
 import ANIMATIONS from '../utils/animations'
@@ -195,8 +195,8 @@ const CLASSNAMES = stylesheet({
     width: '100%'
   },
   dateUI: {
-    background: THEME.background.primary,
-    boxShadow: THEME.background.shadow,
+    background: THEME.colors.background.primary,
+    boxShadow: THEME.colors.background.shadow,
     display: 'none',
     left: 0,
     position: 'absolute',

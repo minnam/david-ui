@@ -14,7 +14,7 @@ import Geosuggest from 'react-geosuggest'
 import { cssRule } from 'typestyle'
 
 /* Common ======================================================================================= */
-import THEME from '../theme'
+import THEME from '../theme-handler'
 
 /* Components =================================================================================== */
 import FieldWrapper from '../field-wrapper/field-wrapper'
@@ -57,7 +57,7 @@ export default GeosuggestField
 
 /* Styles ======================================================================================= */
 cssRule('.geosuggest', {
-  background: THEME.background.primary,
+  background: THEME.colors.background.primary,
   $nest: {
     '&:empty': {
       boxShadow: 'none',
@@ -75,14 +75,14 @@ cssRule('.geosuggest__input', {
   width: '100%',
   $nest: {
     '&:focus': {
-      borderColor: THEME.primary
+      borderColor: THEME.colors.primary
     }
   }
 })
 
 cssRule('.geosuggest__suggests', {
-  background: THEME.background.primary,
-  boxShadow: THEME.background.shadow,
+  background: THEME.colors.background.primary,
+  boxShadow: THEME.colors.background.shadow,
   listStyleType: 'none',
   margin: 0,
   padding: 0,
@@ -100,7 +100,7 @@ cssRule('.geosuggest__item', {
   padding: '12px 15px',
   $nest: {
     '&:hover': {
-      background: THEME.background.disabled,
+      background: THEME.colors.background.disabled,
     }
   }
 })

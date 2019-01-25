@@ -15,7 +15,7 @@ import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 
 /* Commons =================================================================================== */
-import THEME from '../theme'
+import THEME from '../theme-handler'
 
 /* Components =================================================================================== */
 import FieldWrapper from '../field-wrapper/field-wrapper'
@@ -39,8 +39,6 @@ export default class DropDown extends React.Component<*, *> {
 
   render () {
     const {
-      // optionRenderer,
-      // valueRenderer,
       data,
       generateLabel,
       horizontal,
@@ -125,9 +123,9 @@ cssRule('.Select-value, .Select-placeholder, .Select-input', {
 })
 cssRule('.is-focused .Select-control', {
   boxShadow: 'none !important',
-  borderColor: `${THEME.primary} !important`
+  borderColor: `${THEME.colors.primary} !important`
 })
 
 cssRule('.Select-placeholder', {
-  color: THEME.text.placeholder
+  color: THEME.colors.text.placeholder
 })

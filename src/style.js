@@ -54,3 +54,10 @@ cssRule('.no-select', {
   '-moz-user-select': 'none',  /* Firefox */
   '-ms-user-select': 'none',   /* Internet Explorer/Edge */
 })
+
+cssRule('.hr-line-dashed', {
+  borderTop: '1px dashed #e7eaec',
+  color: '#ffffff',
+  height: 1,
+  margin: '14px 0'
+})

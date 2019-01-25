@@ -13,7 +13,7 @@ import type { FieldProps } from 'redux-form'
 import { stylesheet } from 'typestyle'
 
 /* Common ======================================================================================= */
-import THEME from '../theme.js'
+import THEME from '../theme-handler.js'
 
 /* Components =================================================================================== */
 import Button from '../button/button'
@@ -138,7 +138,7 @@ class Cards extends Component<*, *> {
             <span
               className={CLASSNAMES.buttonIcon}
               style={{
-                background: THEME.colors[index++ % THEME.colors.length],
+                background: THEME.colors.alt[index++ % THEME.colors.alt.length].primary,
               }}
             />
           }
@@ -167,9 +167,9 @@ class Cards extends Component<*, *> {
         ref={(parent) => { this.parent = parent }}
         style={
           isChild ? {
-            marginBottom: 0,
             background: 'none',
-            height: fullHeight ? '100%' : ''
+            height: fullHeight ? '100%' : '',
+            marginBottom: 0,
           } : {
             background: 'none'
           }
@@ -325,8 +325,6 @@ class Cards extends Component<*, *> {
           name={`${field}.value.${modelField.name}`}
           textField='name'
           validate={modelField.validate}
-          // optionRenderer={modelField.optionRenderer}
-          // valueRenderer={modelField.valueRenderer}
           generateLabel={modelField.generateLabel}
           valueField='_id'
           data={(() => {
