@@ -53,7 +53,7 @@ export default class QuickAction extends Component {
             <span
               className={CLASSNAMES.buttonIcon}
               style={{
-                background: THEME.colors[index++ % THEME.colors.length],
+                background: THEME().colors[index++ % THEME().colors.length],
               }}
             />
             {element.label}

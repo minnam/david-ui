@@ -6,10 +6,12 @@ import {
 } from 'redux-form'
 import { connect } from 'react-redux'
 
-import { Cards, Dropbox, Form, TextField, FormSection, DropdownList, validation } from '../'
+import { Cards, Dropbox, Form, Roll, TextField, FormSection, DropdownList, validation } from '../'
 import { getName } from './actions'
 
 import { TEST_CARD_MODEL } from './card-model'
+import { ROLL_MODEL } from './roll-model'
+
 export const WEATHER_TYPES = [
   { label: 'Sunny', value: 'Sunny' },
   { label: 'Rainy', value: 'Rainy' },
@@ -56,6 +58,12 @@ class TestForm extends Component {
           label='Name'
           name='name'
           component={TextField}
+        />
+        <Field
+          label={'test-roll'}
+          name={'roll'}
+          component={Roll}
+          model={ROLL_MODEL}
         />
       </FormSection>
       <FieldArray

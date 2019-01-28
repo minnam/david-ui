@@ -57,7 +57,7 @@ export default GeosuggestField
 
 /* Styles ======================================================================================= */
 cssRule('.geosuggest', {
-  background: THEME.colors.background.primary,
+  background: THEME().colors.background.primary,
   $nest: {
     '&:empty': {
       boxShadow: 'none',
@@ -75,14 +75,14 @@ cssRule('.geosuggest__input', {
   width: '100%',
   $nest: {
     '&:focus': {
-      borderColor: THEME.colors.primary
+      borderColor: THEME().colors.primary
     }
   }
 })
 
 cssRule('.geosuggest__suggests', {
-  background: THEME.colors.background.primary,
-  boxShadow: THEME.colors.background.shadow,
+  background: THEME().colors.background.primary,
+  boxShadow: THEME().colors.background.shadow,
   listStyleType: 'none',
   margin: 0,
   padding: 0,
@@ -100,7 +100,7 @@ cssRule('.geosuggest__item', {
   padding: '12px 15px',
   $nest: {
     '&:hover': {
-      background: THEME.colors.background.disabled,
+      background: THEME().colors.background.disabled,
     }
   }
 })

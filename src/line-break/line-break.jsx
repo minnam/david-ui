@@ -19,9 +19,9 @@ export default props => <div
             background: props.backgroundColor || 'white',
             color: props.color || 'rgb(160,160,160)',
             fontWeight: 700,
-            left: props.diasablePadding ? 0 : 17,
+            left: props.diasablePadding ? 0 : 8,
             paddingRight: 15,
-            paddingLeft: 15,
+            paddingLeft: 0,
             position: 'absolute',
           }}
         >

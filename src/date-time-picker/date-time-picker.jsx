@@ -195,8 +195,8 @@ const CLASSNAMES = stylesheet({
     width: '100%'
   },
   dateUI: {
-    background: THEME.colors.background.primary,
-    boxShadow: THEME.colors.background.shadow,
+    background: THEME().colors.background.primary,
+    boxShadow: THEME().colors.background.shadow,
     display: 'none',
     left: 0,
     position: 'absolute',

@@ -173,7 +173,7 @@ export default class Calendar extends Component<* , *> {
 const CLASSNAMES = stylesheet({
   navbarBase: {
     alignItems: 'center',
-    background: THEME.colors.background.secondary,
+    background: THEME().colors.background.secondary,
     display: 'flex',
     height: '50px',
     justifyContent: 'space-between',
@@ -183,7 +183,7 @@ const CLASSNAMES = stylesheet({
     cursor: 'pointer',
     $nest: {
       '&:hover': {
-        color: THEME.colors.primary,
+        color: THEME().colors.primary,
       }
     }
   },
@@ -200,6 +200,6 @@ const CLASSNAMES = stylesheet({
     width: '50px',
   },
   dayLabelBase: {
-    borderBottom: `1px solid ${THEME.colors.borders.primary}`,
+    borderBottom: `1px solid ${THEME().colors.borders.primary}`,
   },
 })

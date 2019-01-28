@@ -44,10 +44,11 @@ const Quill = (props: {
   meta: *
 }) => {
   const {
-    isRequired,
     input,
+    isRequired,
     label,
-    meta
+    labelStyle,
+    meta,
   } = props
 
   return (
@@ -56,6 +57,7 @@ const Quill = (props: {
       labelAlign = 'top'
       id={input.name}
       isRequired={isRequired}
+      labelStyle={labelStyle}
       {...meta}
     >
       <div
@@ -87,8 +89,8 @@ export default Quill
 const CLASSNAMES = stylesheet({
   quillWrapper: {
     $nest: {
-      '& .ql-container, .ql-editor': {
-        minHeight: 200,
+      '& .ql-container': {
+        height: 'calc(100% - 58px)'
       },
       '& .ql-editor': {
         maxHeight: 200

@@ -123,9 +123,9 @@ cssRule('.Select-value, .Select-placeholder, .Select-input', {
 })
 cssRule('.is-focused .Select-control', {
   boxShadow: 'none !important',
-  borderColor: `${THEME.colors.primary} !important`
+  borderColor: `${THEME().colors.primary} !important`
 })
 
 cssRule('.Select-placeholder', {
-  color: THEME.colors.text.placeholder
+  color: THEME().colors.text.placeholder
 })

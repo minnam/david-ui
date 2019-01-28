@@ -176,24 +176,24 @@ export const CLASSNAMES = stylesheet({
     }
   },
   primary: {
-    background: THEME.colors.primary,
-    color: THEME.colors.background.primary,
+    background: THEME().colors.primary,
+    color: THEME().colors.background.primary,
     $nest: {
       '&:hover': {
         background: 'rgba(26,179, 148, 0.7) radial-gradient(circle, transparent 1%, rgba(26,179,148,0.7) 1%) center/15000%',
-        color: THEME.colors.background.primary,
+        color: THEME().colors.background.primary,
       },
       '&:active': {
-        background: THEME.colors.primary,
+        background: THEME().colors.primary,
         backgroundSize: '100%',
         boxShadow: 'none',
-        color: THEME.colors.background.primary,
+        color: THEME().colors.background.primary,
         transition: 'background 0s',
       },
     }
   },
   secondary: {
-    background: THEME.colors.background.primary,
+    background: THEME().colors.background.primary,
     boxShadow: 'none',
     color: 'rgb(103,103,103)',
     $nest: {

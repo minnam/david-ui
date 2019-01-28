@@ -127,7 +127,7 @@ class Cards extends Component<*, *> {
     let index = 0
 
     for (const key in model) {
-      modelIndex[key] = index % THEME.colors.length
+      modelIndex[key] = index % THEME().colors.length
       const item = model[key]
       tools.push(
         <Button
@@ -138,7 +138,7 @@ class Cards extends Component<*, *> {
             <span
               className={CLASSNAMES.buttonIcon}
               style={{
-                background: THEME.colors.alt[index++ % THEME.colors.alt.length].primary,
+                background: THEME().colors.alt[index++ % THEME().colors.alt.length].primary,
               }}
             />
           }

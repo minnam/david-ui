@@ -65,7 +65,7 @@ export default Subheader
 const CLASSNAMES = stylesheet({
   subheader: {
     alignItems: 'center',
-    borderBottom: `1px solid ${THEME.colors.borders.primary}`,
+    borderBottom: `1px solid ${THEME().colors.borders.primary}`,
     display: 'flex',
     fontSize: 11,
     justifyContent: 'space-between',
@@ -79,7 +79,7 @@ const CLASSNAMES = stylesheet({
     }
   },
   title: {
-    color: THEME.colors.text.primary,
+    color: THEME().colors.text.primary,
     fontWeight: 600,
     marginRight: 5,
   },

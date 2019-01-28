@@ -14,6 +14,7 @@ import type { FieldProps } from 'redux-form'
 
 /* Components =================================================================================== */
 import FieldWrapper from '../field-wrapper/field-wrapper'
+import Quill from '../quill/quill'
 import TextField from '../text-field/text-field'
 
 /* <Roll /> ================================================================================= */
@@ -166,6 +167,22 @@ export default class Roll extends React.Component<*, *> {
                         }}
                         key={key}
                       />
+                    case 'Quill' : {
+                      return <Field
+                        name={`${input.name}.${field.name}`}                        
+                        component={Quill}
+                        label={field.label}
+                        validate={field.validate}
+                        placeholder={field.placeHolder}
+                        defaultValue={field.defaultValue}
+                        normalize={field.normalize}
+                        help={field.help}
+                        labelStyle={{
+                          color: 'rgb(170,170,170)'
+                        }}
+                        key={key}
+                      />
+                    }
                     // case 'Dropbox':
                     //   return <FieldArray
                     //     label={field.label}

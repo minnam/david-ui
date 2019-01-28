@@ -176,7 +176,7 @@ class Table extends Component<*, *> {
     if (fixedHeaderToggled && displayFixedHeader) {
       return (
         <div className={classes(ANIMATIONS.fadeInDown, CLASSNAMES.tableFixedHeader, 'no-print', 'no-select')}>
-          <table className='table'>
+          <table className={CLASSNAMES.table}>
             <thead>
               <tr>
                 {

@@ -60,15 +60,15 @@ const CLASSNAMES = stylesheet({
     width: '50px',
     $nest: {
       '&:hover': {
-        border: `3px solid ${THEME.colors.primary}`
+        border: `3px solid ${THEME().colors.primary}`
       }
     }
   },
   selected: {
-    border: `3px solid ${THEME.colors.primary}`,
+    border: `3px solid ${THEME().colors.primary}`,
     fontWeight: 700,
   },
   notInMonth: {
-    color: THEME.colors.text.tertiary,
+    color: THEME().colors.text.tertiary,
   }
 })

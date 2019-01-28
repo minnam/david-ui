@@ -42,7 +42,7 @@ export default class CardSection extends Component<*, *> {
       <div className={CLASSNAMES.cardSection} id={id}>
         <div
           className={classes(CLASSNAMES.cardHeading)}
-          style={{ borderLeft: `5px solid ${THEME.colors[modelIndex]}` }}
+          style={{ borderLeft: `5px solid ${THEME().colors[modelIndex]}` }}
         >
           <span className={CLASSNAMES.cardText}>
             <span

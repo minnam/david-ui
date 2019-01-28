@@ -1,15 +1,15 @@
-const reqlib = require('app-root-path').require
-let theme = require('../tmp/theme.js')
-theme = theme.default
+export default () => {
+  let theme = require('../tmp/theme.js')
+  theme = theme.default
 
-try {  
-  const customTheme = reqlib('/david-ui.theme.js')
-  theme = {
-    ...theme,
-    ...customTheme.default
+  if (window['david-ui']) {
+    if (window['david-ui'].theme) {
+      theme = {
+        ...theme,
+        ...window['david-ui'].theme
+      }
+    }
   }
-} catch (e) {
-  // No need to handle
-}
 
-export default theme
+  return theme
+}

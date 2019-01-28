@@ -17,6 +17,7 @@ import type { ChildrenArray, Element } from 'react'
 import Col from './col'
 import IconButton from '../icon-button/icon-button'
 import Toggle from '../toggle/toggle'
+import { ANIMATIONS } from '..'
 
 /* <Row /> ====================================================================================== */
 class Row extends Component<*, *> {
@@ -133,7 +134,7 @@ class Row extends Component<*, *> {
           />
           {
             actionToggled ? <span
-              className='action-dialog animated fadeInUp'
+              className={classes(CLASSNAMES.actionDialog, ANIMATIONS.fadeInUp)}
             >
               {
                 actions.map((element, key) => {
@@ -187,18 +188,17 @@ const CLASSNAMES = stylesheet({
   },
   rowData: {
     position: 'relative'
+  },
+  actionDialog: {
+    width: 120,
+    right: 0,
+    top: 0,
+    position: 'absolute',
+    background: 'white',
+    boxShadow: '1px 1px 1px 1px rgba(0,0,0,0.1)',
+    padding: '10px 0 !important',
+    zIndex: 2000
   }
-})
-
-cssRule('action-dialog', {
-  width: 120,
-  right: 0,
-  top: 0,
-  position: 'absolute',
-  background: 'white',
-  boxShadow: '1px 1px 1px 1px rgba(0,0,0,0.1)',
-  padding: '10px 0 !important',
-  zIndex: 2000
 })
 
 /* Export ======================================================================================= */

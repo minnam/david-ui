@@ -15,12 +15,14 @@ import { stylesheet } from 'typestyle'
 /* Common ======================================================================================= */
 import THEME from '../theme-handler.js'
 
+console.log(THEME().avatar.logo)
+
 /* Constants ==================================================================================== */
 const CURRENT_TIME = new Date().getHours()
 const IMAGES = {
-  logo: THEME.avatar.logo,
-  error: THEME.avatar.error,
-  default: THEME.avatar.default
+  logo: THEME().avatar.logo,
+  error: THEME().avatar.error,
+  default: THEME().avatar.default
 }
 
 /* <Avatar /> =================================================================================== */
@@ -91,7 +93,7 @@ const CLASSNAMES = stylesheet({
     },
   },
   message: {
-    background: THEME.colors.background.primary,
+    background: THEME().colors.background.primary,
     boxShadow: '1px 1px 5px 1px rgba(0,0,0,0.1)',
     display: 'inline-block',
     fontSize: 14,
@@ -103,7 +105,7 @@ const CLASSNAMES = stylesheet({
     width: 'calc(100% - 89px)',
   },
   messageTail: {
-    background: THEME.colors.background.primary,
+    background: THEME().colors.background.primary,
     borderBottom: '1px solid rgba(0,0,0,0.1)',
     borderLeft: '1px solid rgba(0,0,0,0.1)',
     height: 15,
