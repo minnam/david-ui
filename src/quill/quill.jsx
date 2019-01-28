@@ -89,8 +89,9 @@ export default Quill
 const CLASSNAMES = stylesheet({
   quillWrapper: {
     $nest: {
-      '& .ql-container': {
-        height: 'calc(100% - 58px)'
+      '& .ql-container, .ql-editor': {
+        minHeight: 200,
+        height: 'initial'
       },
       '& .ql-editor': {
         maxHeight: 200

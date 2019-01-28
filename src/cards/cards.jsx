@@ -127,7 +127,7 @@ class Cards extends Component<*, *> {
     let index = 0
 
     for (const key in model) {
-      modelIndex[key] = index % THEME().colors.length
+      modelIndex[key] = index % THEME().colors.alt.length
       const item = model[key]
       tools.push(
         <Button
@@ -145,12 +145,11 @@ class Cards extends Component<*, *> {
           onClick={() => {
             /** Scroll to bottom */
             const formBoundingRect = this.parent.form.getBoundingClientRect()
-            window.scrollTo(0, window.scrollY + formBoundingRect.y + formBoundingRect.height - window.innerHeight / 2)            
+            window.scrollTo(0, window.scrollY + formBoundingRect.y + formBoundingRect.height - window.innerHeight / 2)
             fields.push({
               type: key,
               value: {}
             })
-            console.log(key)
           }}
         />
       )

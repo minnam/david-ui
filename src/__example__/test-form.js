@@ -6,7 +6,7 @@ import {
 } from 'redux-form'
 import { connect } from 'react-redux'
 
-import { Cards, Dropbox, Form, Roll, TextField, FormSection, DropdownList, validation } from '../'
+import { Cards, Dropbox, Form, Roll, TextField, FormSection, DropdownList, Quill, validation } from '../'
 import { getName } from './actions'
 
 import { TEST_CARD_MODEL } from './card-model'
@@ -36,7 +36,6 @@ class TestForm extends Component {
   }
 
   render () {
-    console.log(this.props)
     return <Form>
       <FormSection>
         <Field
@@ -58,6 +57,11 @@ class TestForm extends Component {
           label='Name'
           name='name'
           component={TextField}
+        />
+        <Field
+          label='Quill Test'
+          name='quilltest'
+          component={Quill}
         />
         <Field
           label={'test-roll'}
