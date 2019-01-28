@@ -205,7 +205,7 @@ class Table extends Component<*, *> {
                 {
                   (() => {
                     if (displayActions) {
-                      return <th><span className={CLASSNAMES.tableEmptyCell}/></th>
+                      return <th style={{ width: 54, display: 'inline-block' }}><span className={CLASSNAMES.tableEmptyCell}/></th>
                     }
                   })()
                 }

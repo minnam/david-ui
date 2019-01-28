@@ -17,7 +17,7 @@ import Dropzone from 'react-dropzone'
 import Button from '../button/button'
 import DropdownList from '../dropdown/dropdown'
 import FieldWrapper from '../field-wrapper/field-wrapper'
-import valiation from '../validation'
+import validation from '../validation'
 
 /* Constants ==================================================================================== */
 const ATTACHMENT_TYPES = [

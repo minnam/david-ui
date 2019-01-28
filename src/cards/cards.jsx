@@ -415,6 +415,7 @@ class Cards extends Component<*, *> {
           url={modelField.url}
           validate={modelField.validate}
           generateLabel={modelField.generateLabel}
+          getToken={modelField.getToken}
           key={key2}
         />
 
