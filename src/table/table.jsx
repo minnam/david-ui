@@ -335,7 +335,7 @@ export const CLASSNAMES = stylesheet({
         height: 35,
         lineHeight: '30px',
         padding: '12px 15px',
-        textAlign: 'left',
+        // textAlign: 'left',
         verticalAlign: 'top !important',
         '@media print': {
           padding: '0px 15px !important'
