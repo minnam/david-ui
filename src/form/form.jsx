@@ -23,7 +23,7 @@ import ToolbarButton from '../toolbar/toolbar-button'
 export default class Form extends Component {
   constructor (props) {
     super(props)
-    this.state = {finshedAnimation: false}
+    this.state = { finshedAnimation: false }
   }
 
   componentDidMount () {

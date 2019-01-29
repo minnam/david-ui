@@ -89,6 +89,7 @@ const Button = (props: {
   })()
 
   return <span
+    className='no-print'
     style={{
       position: 'relative',
       width: role === 'circle' ? 37 : '' // Need to investigate why there is an offset for button (remove) in Card component

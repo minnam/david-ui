@@ -322,6 +322,7 @@ export const CLASSNAMES = stylesheet({
     marginBottom: 20,
     maxWidth: '100%',
     float: 'right',
+    fontSize: 13,
     $nest: {
       '& tbody': {
         background: 'white'
@@ -347,7 +348,7 @@ export const CLASSNAMES = stylesheet({
       '& th': {
         paddingLeft: 15,
         paddingTop: 0,
-        paddingBottom: 15
+        paddingBottom: 15,
       },
       '& th.fixed-th': {
         paddingTop: '11px !important',
@@ -355,12 +356,10 @@ export const CLASSNAMES = stylesheet({
       },
       '& th.fixed-th > span': {
         display: 'inline-block',
-        textAlign: 'left',
         width: '100%',
       },
       '& th > span': {
         display: 'inline-block',
-        textAlign: 'left',
         width: '100%',
       },
       '& tbody > tr > td.pr': {

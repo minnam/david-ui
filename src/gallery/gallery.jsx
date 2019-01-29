@@ -25,10 +25,6 @@ export default class Gallery extends Component<*, *> {
     index: number
   }
 
-  state = {
-    index: this.props.index
-  }
-
   render () {
     const { baseUrl, images } = this.props
     const { index } = this.state
@@ -81,6 +77,11 @@ export default class Gallery extends Component<*, *> {
         <i className="material-icons">keyboard_arrow_right</i>
       </div>
     </div>
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = { index: props.index }
   }
 
   navigateLeft = () => {
