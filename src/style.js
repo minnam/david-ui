@@ -15,7 +15,7 @@ export default () => {
   cssRule('@media print', {
     $nest: {
       '.no-print': {
-        display: 'none'
+        display: 'none !important',
       }
     }
   })

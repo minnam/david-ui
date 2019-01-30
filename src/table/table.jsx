@@ -8,7 +8,7 @@
  * @flow
  */
 import React, { Component } from 'react'
-import { classes, stylesheet } from 'typestyle'
+import { classes, style, stylesheet } from 'typestyle'
 
 /* Common ======================================================================================= */
 import GLOBAL_CLASSNAMES from '../classnames'
@@ -32,6 +32,15 @@ export const search = (target: Element<typeof Col>, key: string) => {
     })
   }
 }
+
+const NO_PRINT = style({
+  color: 'red',
+  $nest: {
+    '@media print': {
+      display: 'none !important'
+    }
+  }
+})
 
 /* <Table /> ==================================================================================== */
 class Table extends Component<*, *> {
@@ -175,7 +184,7 @@ class Table extends Component<*, *> {
 
     if (fixedHeaderToggled && displayFixedHeader) {
       return (
-        <div className={classes(ANIMATIONS.fadeInDown, CLASSNAMES.tableFixedHeader, 'no-print', 'no-select')}>
+        <div className={classes(ANIMATIONS.fadeInDown, CLASSNAMES.tableFixedHeader, 'no-print', 'no-select', NO_PRINT)}>
           <table className={CLASSNAMES.table}>
             <thead>
               <tr>
@@ -339,7 +348,7 @@ export const CLASSNAMES = stylesheet({
         // textAlign: 'left',
         verticalAlign: 'top !important',
         '@media print': {
-          padding: '0px 15px !important'
+          padding: '0px 15px !important',
         }
       },
       '& tr': {        
@@ -352,15 +361,15 @@ export const CLASSNAMES = stylesheet({
       },
       '& th.fixed-th': {
         paddingTop: '11px !important',
-        paddingBottom: '3px !important'
+        paddingBottom: '3px !important',
       },
       '& th.fixed-th > span': {
         display: 'inline-block',
-        width: '100%',
+        width: '100%',        
       },
       '& th > span': {
         display: 'inline-block',
-        width: '100%',
+        width: '100%'
       },
       '& tbody > tr > td.pr': {
         color: 'rgb(60,60,60) !important',
@@ -402,7 +411,7 @@ export const CLASSNAMES = stylesheet({
   },
   tableFixedTh: {
     paddingTop: '11px !important',
-    paddingBottom: '3px !important'
+    paddingBottom: '3px !important',    
   }
 })
 

@@ -54,7 +54,7 @@ class Search extends Component<Props, *> {
               return <IconButton
                 icon={ 'search' }
                 type={ 'button' }
-                className={ CLASSNAMES.searchOpenButton }
+                className={ classes(CLASSNAMES.searchOpenButton, 'no-print') }
                 onClick={ this.onSearchButtonClick }
                 secondaryButtonIcon={searchText.length > 0 ? <i className='material-icons'>close</i> : null}
                 secondaryOnClick={event => {
