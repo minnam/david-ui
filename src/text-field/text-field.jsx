@@ -12,6 +12,9 @@
 import React from 'react'
 import { classes, stylesheet } from 'typestyle'
 
+/* Common ======================================================================================= */
+import THEME from '../theme-handler.js'
+
 /* Components =================================================================================== */
 import FieldWrapper from '../field-wrapper/field-wrapper'
 
@@ -120,7 +123,7 @@ const CLASSNAMES = stylesheet({
     width: '100%',
     $nest: {
       '&:focus': {
-        borderColor: 'rgba(26, 179, 148, 1)',
+        borderColor: THEME().colors.primary,
         outline: 'none',
       },
     },
