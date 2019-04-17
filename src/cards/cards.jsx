@@ -422,7 +422,7 @@ class Cards extends Component<*, *> {
           url={modelField.url}
           validate={modelField.validate}
           generateLabel={modelField.generateLabel}
-          getToken={modelField.getToken}
+          callback={modelField.callback}
           key={key2}
         />
 
