@@ -15,8 +15,6 @@ import { stylesheet } from 'typestyle'
 /* Common ======================================================================================= */
 import THEME from '../theme-handler.js'
 
-console.log(THEME().avatar.logo)
-
 /* Constants ==================================================================================== */
 const CURRENT_TIME = new Date().getHours()
 const IMAGES = {

@@ -143,7 +143,6 @@ export default class DebounceInput extends React.Component<*,*> {
 
   componentWillMount () {
     const { getToken } = this.props
-    console.log(getToken)
 
     if (getToken) {
       axios.defaults.headers.common['Authorization'] = getToken()

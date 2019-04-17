@@ -35,8 +35,9 @@ export default class Checkbox extends React.Component<*, *> {
   }
 
   state = {
-    hover: false,
     active: false,
+    checked: false,
+    hover: false
   }
 
   componentWillMount () {

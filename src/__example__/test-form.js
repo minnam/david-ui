@@ -8,10 +8,20 @@ import { style } from 'typestyle'
 import { connect } from 'react-redux'
 
 import {
-  Table,
-  Row,
+  Cards,
   Col,
-  Cards, Dropbox, Form, Roll, TextField, FormSection, DropdownList, Quill, validation } from '../'
+  Dropbox,
+  DropdownList,
+  Form,
+  FormSection,
+  Quill,
+  Roll,
+  Row,
+  Table,
+  TextField,
+  Toggle,
+  validation
+} from '../'
 import { getName } from './actions'
 
 import { TEST_CARD_MODEL } from './card-model'
@@ -36,7 +46,7 @@ export const WEATHER_TYPES = [
 ]
 
 const HAZARD_RATINGS_HEADERS = [
-  { name: 'Name', size: 0.3 },
+  { name: 'Hello', size: 0.3 },
   { name: 'Positive', size: 0.2 },
   { name: 'Negative', size: 0.5, className: style({ textAlign: 'right' }) },
 ]
@@ -106,6 +116,11 @@ class TestForm extends Component {
 
   render () {
     return <div>
+      <Toggle
+        iconOn='check_box'
+        iconOff='check_box_outline_blank'
+      />
+
       <Table
         headers={HAZARD_RATINGS_HEADERS}
       >
