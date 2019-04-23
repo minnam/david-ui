@@ -66,17 +66,24 @@ class Table extends Component<*, *> {
          * size is relative (it does not have to be sum of 1)
          * ex. .5, .5, 1 will be 25% 25% 50%
         */
+        field: string,
         size: number,
         className: string,
         style: CSSRule,
         highlight: boolean
     }],
+    /** onClick function passed to table headers */
+    headerOnClick: function,
     /** id for parent wrapper */
     id: string,
     /** Search text to filter rows */
     searchText: string,
     /** Search text callback */
     setSearchText: $PropertyType<SearchProps, 'setSearchText'>,
+    /** Field currently being sorted */
+    sortedField: string,
+    /** Icon to be displayed next to header of field being sorted */
+    sortIcon: String,
     /** Style fore parent wrappper */
     style: CSSRule,
     /** Title for <Toolbar /> */
@@ -92,7 +99,7 @@ class Table extends Component<*, *> {
   }
 
   /* Class Types ================================================================================ */
-  debounceToogle: TimeoutID | null
+  debounceToggle: TimeoutID | null
   table: HTMLDivElement
 
   /* Default Props ============================================================================== */
@@ -105,11 +112,17 @@ class Table extends Component<*, *> {
   /* State ====================================================================================== */
   state = {
     fixedHeaderToggled: false,
-    searchToggled: false
+    searchToggled: false,
   }
 
   render () {
-    const { className, displaySubMenu, id, style, headers } = this.props
+    const {
+      className,
+      displaySubMenu,
+      id,
+      style,
+      headers
+    } = this.props
 
     return (
       <div
@@ -153,19 +166,19 @@ class Table extends Component<*, *> {
   componentWillUnmount () {
     window.removeEventListener('scroll', this.toggleFixedHeader)
 
-    if (this.debounceToogle) {
-      clearTimeout(this.debounceToogle)
+    if (this.debounceToggle) {
+      clearTimeout(this.debounceToggle)
     }
   }
 
   toggleFixedHeader = () => {
     const { fixedHeaderOffset = 0 } = this.props
 
-    if (this.debounceToogle) {
-      clearTimeout(this.debounceToogle)
+    if (this.debounceToggle) {
+      clearTimeout(this.debounceToggle)
     }
 
-    this.debounceToogle = setTimeout(() => {
+    this.debounceToggle = setTimeout(() => {
       const position = this.table.getBoundingClientRect().top + fixedHeaderOffset
 
       if (this.table && position <= 0) {
@@ -174,12 +187,17 @@ class Table extends Component<*, *> {
         this.setState({ fixedHeaderToggled: false })
       }
 
-      this.debounceToogle = null
+      this.debounceToggle = null
     }, 100)
   }
 
   renderFixedHeader () {
-    const { headers, displayActions, displayToggle, displayFixedHeader } = this.props
+    const {
+      displayActions,
+      displayFixedHeader,
+      displayToggle,
+      headers,
+    } = this.props
     const { fixedHeaderToggled } = this.state
 
     if (fixedHeaderToggled && displayFixedHeader) {
@@ -206,7 +224,20 @@ class Table extends Component<*, *> {
                           ...header.style
                         }}
                       >
-                        <span>{header.name}</span>
+                        <span>
+                          { header.name }
+                          { this.props.sortedField === header.name &&
+                            <i
+                              className='material-icons'
+                              style={{
+                                position: 'absolute',
+                                top: '7px'
+                              }}
+                            >
+                              sort
+                            </i>
+                          }
+                        </span>
                       </th>
                     )
                   })
@@ -229,7 +260,13 @@ class Table extends Component<*, *> {
   }
 
   renderHeader () {
-    const { displayToggle, headers } = this.props
+    const {
+      displayToggle,
+      headerOnClick,
+      headers,
+      sortedField,
+      sortIcon
+    } = this.props
 
     return <thead>
       <tr>
@@ -252,26 +289,35 @@ class Table extends Component<*, *> {
                     position: 'relative',
                     ...header.style
                   }}
+                  onClick={
+                    () => {
+                      if (header.field) {
+                        headerOnClick(header.field)
+                      }
+                    }
+                  }
                 >
                   {
                     (() => {
                       if (header.highlight) {
-                        return <span
-                          style={{
-                            background: '#fc4e4e',
-                            borderRadius: '50%',
-                            display: 'inline-block',
-                            height: 10,
-                            left: 0,
-                            position: 'absolute',
-                            top: 5,
-                            width: 10,
-                          }}
-                        />
+                        return <span className={ CLASSNAMES.tableHighlight }/>
                       }
                     })()
                   }
-                  <span>{header.name}</span>
+                  <span>
+                    { header.name }
+                    { sortedField === header.field &&
+                      <i
+                        className='material-icons'
+                        style={{
+                          position: 'absolute',
+                          top: '-4px'
+                        }}
+                      >
+                        { sortIcon }
+                      </i>
+                    }
+                  </span>
                 </th>
               )
             }
@@ -351,7 +397,7 @@ export const CLASSNAMES = stylesheet({
           padding: '0px 15px !important',
         }
       },
-      '& tr': {        
+      '& tr': {
         width: '100%',
       },
       '& th': {
@@ -365,7 +411,7 @@ export const CLASSNAMES = stylesheet({
       },
       '& th.fixed-th > span': {
         display: 'inline-block',
-        width: '100%',        
+        width: '100%',
       },
       '& th > span': {
         display: 'inline-block',
@@ -411,11 +457,19 @@ export const CLASSNAMES = stylesheet({
   },
   tableFixedTh: {
     paddingTop: '11px !important',
-    paddingBottom: '3px !important',    
+    paddingBottom: '3px !important',
+  },
+  tableHighlight: {
+    background: '#fc4e4e',
+    borderRadius: '50%',
+    display: 'inline-block',
+    height: 10,
+    left: 0,
+    position: 'absolute',
+    top: 5,
+    width: 10,
   }
 })
-
-
 
 /* Export ======================================================================================= */
 export default Table
