@@ -141,15 +141,6 @@ export default class DebounceInput extends React.Component<*,*> {
     )
   }
 
-  componentWillMount () {
-    const { getToken } = this.props
-    console.log(getToken)
-
-    if (getToken) {
-      axios.defaults.headers.common['Authorization'] = getToken()
-    }
-  }
-
   componentDidMount () {
     const { input, generateLabel } = this.props
     if (input.value) {
@@ -249,17 +240,16 @@ export default class DebounceInput extends React.Component<*,*> {
   }
 
   search () {
-    const { searchKey, url } = this.props
+    const { searchKey, url, callback } = this.props
     const { value } = this.state
 
     /**
      * This use to be ${searchKey}=value but changed due to how we deal with multiple search keys
      */
-    axios.get(`${url}?${qs.stringify({ search: [value] })}`).then(req => {
-      this.setState({
-        data: req.data[searchKey].slice(0,5)
-      })
+    callback(value, data => {
+      this.setState({ data })
     })
+    
   }
 }
 

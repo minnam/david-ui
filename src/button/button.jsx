@@ -25,14 +25,14 @@ const Button = (props: {
   /** element/icon/image/etc. to be displayed in button */
   icon?: *,
   /** Text to be displayed in a Button */
-  label: string,
+  label?: string,
   /** Button onclick event callback */
   onClick?: () => void,
   /** Determines button's base style */
   role?: string,
   /** Label for Secondary button on top right */
-  secondaryButtonIcon: *,
-  secondaryOnClick: () => void,
+  secondaryButtonIcon?: *,
+  secondaryOnClick?: () => void,
   /** Button size, 'sm' by default */
   size?: 'xs' | 'sm' | 'md' | 'lg',
   /** Additional styles for button element */

@@ -8,6 +8,7 @@
  * @flow
  */
 import React, { Component } from 'react'
+import type { Node } from 'react'
 import { Field, FieldArray } from 'redux-form'
 import type { FieldProps } from 'redux-form'
 import { stylesheet } from 'typestyle'
@@ -34,44 +35,45 @@ import { CHECKBOX_FILTER_ROLL_MODEL } from './checkbox-filter-roll-fields'
 
 
 /* Types ======================================================================================== */
-type CardModelType = [
-  {
-    /** React component for dropdown items */
-    optionRenderer: any,
-    /** React component for dropdown value */
-    valueRenderer: any,
-    /** Collect a certain set from data and populate to dropdown list */
-    collect: { key: string, data: [] },
-    /** Data set for dropdown list */
-    data: string,
-    defaultValue: any,
-    displayLineBreak: boolean,
-    /** Filter for dropdown list */
-    filter: { key: string, data: [] },
-    /** Filter dynamic let a dropdown list from a parent card alters child card's dropdown list */
-    filterDynamic: (data: [], filter: {}) => [],
-    filterDynamicEnabled: boolean,
-    filterDynamicTarget: string,
-    /** Generate label for react-select */
-    generateLabel: Function,
-    isFilter: boolean,
-    isNumeric: boolean,
-    isRequired: boolean,
-    label: string,
-    model: CardModelType,
-    name: string,
-    max: number,
-    /** Placeholder text for text input */
-    placeHolder: string,
-    /** Search key for debounce input */
-    searchKey: string,
-    style: CSSRule,
-    type: string,
-    /** API URL for debounce input */
-    url: string,
-    validate: () => boolean
-  }
-]
+
+type CardModelType = {
+  /** React component for dropdown items */
+  optionRenderer: any,
+  /** React component for dropdown value */
+  valueRenderer: any,
+  /** Collect a certain set from data and populate to dropdown list */
+  collect: { key: string, data: [] },
+  /** Data set for dropdown list */
+  data: string,
+  defaultValue: any,
+  displayLineBreak: boolean,
+  /** Filter for dropdown list */
+  filter: { key: string, data: [] },
+  /** Filter dynamic let a dropdown list from a parent card alters child card's dropdown list */
+  filterDynamic: (data: [], filter: {}) => [],
+  filterDynamicEnabled: boolean,
+  filterDynamicTarget: string,
+  /** Generate label for react-select */
+  generateLabel: Function,
+  isFilter: boolean,
+  isNumeric: boolean,
+  isRequired: boolean,
+  label: string,
+  model: CardModelType,
+  name: string,
+  max: number,
+  /** Placeholder text for text input */
+  placeHolder: string,
+  /** Search key for debounce input */
+  searchKey: string,
+  style: CSSRule,
+  type: string,
+  /** API URL for debounce input */
+  url: string,
+  validate: () => boolean
+}
+
+type CardModelsType = Array<CardModelType>
 
 type CardPropType = {
   contentStyle: CSSRule,
@@ -88,13 +90,12 @@ type CardPropType = {
   resetFilterField: (field: string) => void
 } & FieldProps
 
-console.log(Quill)
-
 /* <Cards /> ==================================================================================== */
 class Cards extends Component<*, *> {
   /* Types ====================================================================================== */
   props: CardPropType
   parent: any
+  contentWrapper: HTMLDivElement
   state: {
     /** Array of filter target objects for filtered dropdown components to filter upon. */
     filterTargets: [*],
@@ -179,7 +180,13 @@ class Cards extends Component<*, *> {
             ...contentStyle,
             position: 'relative'
           }}
-          ref={(contentWrapper) => { this.contentWrapper = contentWrapper}}
+          ref={
+            contentWrapper => { 
+              if (contentWrapper) { 
+                this.contentWrapper = contentWrapper 
+              } 
+            }
+          }
         >
           <QuickAction
             items={(() => {
@@ -284,14 +291,14 @@ class Cards extends Component<*, *> {
     }
   }
 
-  renderFields (modelFields: CardModelType, field: string, key: number) {
+  renderFields (modelFields: CardModelsType, field: string, key: number) {
     const { data, fields, resetFilterField } = this.props
 
     if (fields.length === 0) {
       return null
     }
 
-    return modelFields.map((modelField, key2) => {
+    return modelFields.map<CardModelType>((modelField, key2) => {
       switch (modelField.type) {
       case 'DropdownList': {
         const newData = [...data[modelField.data]]
@@ -415,7 +422,7 @@ class Cards extends Component<*, *> {
           url={modelField.url}
           validate={modelField.validate}
           generateLabel={modelField.generateLabel}
-          getToken={modelField.getToken}
+          callback={modelField.callback}
           key={key2}
         />
 

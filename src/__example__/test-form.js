@@ -8,10 +8,20 @@ import { style } from 'typestyle'
 import { connect } from 'react-redux'
 
 import {
-  Table,
-  Row,
+  Cards,
   Col,
-  Cards, Dropbox, Form, Roll, TextField, FormSection, DropdownList, Quill, validation } from '../'
+  Dropbox,
+  DropdownList,
+  Form,
+  FormSection,
+  Quill,
+  Roll,
+  Row,
+  Table,
+  TextField,
+  Toggle,
+  validation
+} from '../'
 import { getName, setFilter } from './actions'
 
 import { TEST_CARD_MODEL } from './card-model'
@@ -49,7 +59,6 @@ const HAZARD_RATINGS_HEADERS = [
   {
     name: 'Negative',
     size: 0.5,
-    // field: 'negative field',
     className: style({ textAlign: 'right' })
   },
 ]
@@ -136,6 +145,11 @@ class TestForm extends Component {
     }
 
     return <div>
+      <Toggle
+        iconOn='check_box'
+        iconOff='check_box_outline_blank'
+      />
+
       <Table
         sortedField={ sortedField }
         sortIcon={ sortIcon }
