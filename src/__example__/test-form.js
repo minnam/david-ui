@@ -22,7 +22,7 @@ import {
   Toggle,
   validation
 } from '../'
-import { getName } from './actions'
+import { getName, setFilter } from './actions'
 
 import { TEST_CARD_MODEL } from './card-model'
 import { ROLL_MODEL } from './roll-model'
@@ -46,9 +46,21 @@ export const WEATHER_TYPES = [
 ]
 
 const HAZARD_RATINGS_HEADERS = [
-  { name: 'Hello', size: 0.3 },
-  { name: 'Positive', size: 0.2 },
-  { name: 'Negative', size: 0.5, className: style({ textAlign: 'right' }) },
+  {
+    name: 'Name',
+    size: 0.3,
+    field: 'name field'
+  },
+  {
+    name: 'Positive',
+    size: 0.2,
+    field: 'positive field'
+  },
+  {
+    name: 'Negative',
+    size: 0.5,
+    className: style({ textAlign: 'right' })
+  },
 ]
 
 const TEST_ROWS = [
@@ -111,10 +123,27 @@ const TEST_ROWS = [
 
 class TestForm extends Component {
   componentDidMount () {
+    this.props.setFilter({
+      sort: 'name field'
+    })
     this.props.getName()
   }
 
   render () {
+    const { test } = this.props
+    let sortedField = ''
+    let sortIcon = ''
+
+    if (test.filterData.sort) {
+      if (test.filterData.sort.charAt(0) === '-') {
+        sortedField = test.filterData.sort.substr(1)
+        sortIcon = 'keyboard_arrow_down'
+      } else {
+        sortedField = test.filterData.sort
+        sortIcon = 'keyboard_arrow_up'
+      }
+    }
+
     return <div>
       <Toggle
         iconOn='check_box'
@@ -122,7 +151,22 @@ class TestForm extends Component {
       />
 
       <Table
+        sortedField={ sortedField }
+        sortIcon={ sortIcon }
         headers={HAZARD_RATINGS_HEADERS}
+        headerOnClick={
+          (field) => {
+            let sortedField = field
+            if(test.filterData.sort === sortedField) {
+              sortedField = `-${sortedField}`
+            }
+            // simulating dispatching of set filter action in GET action
+            this.props.setFilter({
+              sort: sortedField
+            })
+            this.props.getName()
+          }
+        }
       >
         {
           TEST_ROWS.map((row, key) => {
@@ -186,9 +230,10 @@ TestForm = reduxForm({
 })(TestForm)
 
 export default connect(
-  () => {
-    return {}
+  (state) => {
+    return { test: state.test }
   }, {
-    getName
+    getName,
+    setFilter
   }
 )(TestForm)
