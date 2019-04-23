@@ -226,17 +226,6 @@ class Table extends Component<*, *> {
                       >
                         <span>
                           { header.name }
-                          { this.props.sortedField === header.name &&
-                            <i
-                              className='material-icons'
-                              style={{
-                                position: 'absolute',
-                                top: '7px'
-                              }}
-                            >
-                              sort
-                            </i>
-                          }
                         </span>
                       </th>
                     )
