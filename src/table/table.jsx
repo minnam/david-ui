@@ -456,7 +456,7 @@ export const CLASSNAMES = stylesheet({
     left: 0,
     position: 'absolute',
     top: 5,
-    width: 10,
+    width: '10px !important',
   }
 })
 
