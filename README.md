@@ -2,7 +2,7 @@
 This is a collection of UI Components that are compatible with **Redux Form**
 
 ## Prerequisite
-- Install commitizen globally ```npm install -g commitizen```
+- Install commitizen globally ```npm install -g commitizen ```
 
 ## Development & Development
 1. Start dev server, ```npm start```
