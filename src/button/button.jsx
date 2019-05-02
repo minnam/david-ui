@@ -102,7 +102,7 @@ const Button = (props: {
     className='no-print'
     style={{
       position: 'relative',
-      width: role === 'circle' ? 37 : '' // Need to investigate why there is an offset for button (remove) in Card component
+      width: circle ? 37 : '' // Need to investigate why there is an offset for button (remove) in Card component
     }}
   >
     {
