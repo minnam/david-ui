@@ -21,11 +21,15 @@ const ToolbarButton = (props: {
   label: string,
   onClick: () => void,
   primary: boolean,
-  role: string,
   secondaryButtonIcon: *,
   secondaryOnClick: () => void,
   style?: CSSRule,
   to: string,
+  /** Button Types */
+  primary?: boolean,
+  secondary?: boolean,
+  alternative?: boolean,
+  circle?: boolean,
 }) => {
   const {
     disabled,
@@ -35,7 +39,12 @@ const ToolbarButton = (props: {
     secondaryButtonIcon,
     secondaryOnClick,
     style,
-    to
+    to,
+    /** Button Types */
+    primary,
+    secondary,
+    alternative,
+    circle
   } = props
 
   return (
@@ -49,6 +58,10 @@ const ToolbarButton = (props: {
       to={ to }
       role={ role }
       disabled={ disabled }
+      primary={primary}
+      secondary={secondary}
+      alternative={alternative}
+      circle={circle}
     />
   )
 }
