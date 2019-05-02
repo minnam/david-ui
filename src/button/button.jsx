@@ -163,8 +163,6 @@ const Button = (props: {
 }
 export default Button
 
-console.log('david', THEME())
-
 /* Styles ======================================================================================= */
 export const CLASSNAMES = stylesheet({
   button: {
