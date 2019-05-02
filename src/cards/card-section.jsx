@@ -71,8 +71,7 @@ export default class CardSection extends Component<*, *> {
           </span>
           <Button
             className={CLASSNAMES.cardRemove}
-            type='button'
-            role='circle'
+            type='button'            
             onClick={remove}
             style={{
               padding: '5px 7px',
@@ -83,7 +82,7 @@ export default class CardSection extends Component<*, *> {
                 close
               </i>
             }
-            primary
+            circle
           />
         </div>
         {

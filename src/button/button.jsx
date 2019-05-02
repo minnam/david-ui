@@ -28,8 +28,11 @@ const Button = (props: {
   label?: string,
   /** Button onclick event callback */
   onClick?: () => void,
-  /** Determines button's base style */
-  role?: string,
+  /** Button Types */
+  primary?: boolean,
+  secondary?: boolean,
+  alternative?: boolean,
+  circle?: boolean,
   /** Label for Secondary button on top right */
   secondaryButtonIcon?: *,
   secondaryOnClick?: () => void,
@@ -47,14 +50,19 @@ const Button = (props: {
     disabled,
     icon,
     label,
-    onClick,
-    role,
+    onClick,    
     secondaryButtonIcon,
     secondaryOnClick,
     size,
     style,
     to,
     type,
+
+    /** Button Types */
+    primary,
+    secondary,
+    alternative,
+    circle
   } = props
 
   const buttonSize = (() => {
@@ -72,21 +80,23 @@ const Button = (props: {
     }
   })()
 
-  const buttonStatus = (() => {
-    if (disabled) {
-      return CLASSNAMES.disabled
-    }
-    switch (role) {
-    case 'primary':
-      return CLASSNAMES.primary
-    case 'secondary':
-      return CLASSNAMES.secondary
-    case 'circle':
-      return CLASSNAMES.circle
-    default:
-      return CLASSNAMES.secondary
-    }
-  })()
+  let buttonType = CLASSNAMES.default
+
+  if (primary) {
+    buttonType = CLASSNAMES.primary
+  }
+
+  if (secondary) {
+    buttonType = CLASSNAMES.secondary
+  }
+
+  if (alternative) {
+    buttonType = CLASSNAMES.alternative
+  }
+
+  if (circle) {
+    buttonType = CLASSNAMES.circle
+  }
 
   return <span
     className='no-print'
@@ -104,7 +114,7 @@ const Button = (props: {
                 classes(
                   'no-select',
                   buttonSize,
-                  buttonStatus,
+                  buttonType,
                   className,
                   CLASSNAMES.button,
                 )
@@ -123,7 +133,7 @@ const Button = (props: {
               classes(
                 'no-select',
                 buttonSize,
-                buttonStatus,
+                buttonType,
                 className,
                 CLASSNAMES.button,
               )
@@ -177,35 +187,48 @@ export const CLASSNAMES = stylesheet({
     }
   },
   primary: {
-    background: THEME().colors.primary,
-    color: THEME().colors.background.primary,
+    background: THEME().colors.button.primary.background,
+    color: THEME().colors.button.primary.color,
     $nest: {
       '&:hover': {
-        background: 'rgba(26,179, 148, 0.7) radial-gradient(circle, transparent 1%, rgba(26,179,148,0.7) 1%) center/15000%',
-        color: THEME().colors.background.primary,
+        background: THEME().colors.button.primary.hover.background,
+        color: THEME().colors.button.primary.hover.color,
       },
-      '&:active': {
-        background: THEME().colors.primary,
+      '&:active': {        
         backgroundSize: '100%',
         boxShadow: 'none',
-        color: THEME().colors.background.primary,
-        transition: 'background 0s',
+        transition: 'background 0s'
       },
     }
   },
   secondary: {
-    background: THEME().colors.background.primary,
+    background: THEME().colors.button.secondary.background,
     boxShadow: 'none',
-    color: 'rgb(103,103,103)',
+    color: THEME().colors.button.secondary.color,
     $nest: {
       '&:hover': {
-        background: 'rgb(240, 240, 240) radial-gradient(circle, transparent 1%, rgb(240, 240, 240) 1%) center/15000%',
-        color: 'rgb(103,103,103)',
+        background: THEME().colors.button.secondary.hover.background,
+        color: THEME().colors.button.secondary.hover.color,
       },
-      '&:active': {
-        backgroundColor: 'rgb(240,240,240)',
+      '&:active': {        
         backgroundSize: '100%',
-        color: 'rgb(103,103,103)',
+        boxShadow: 'none',
+        transition: 'background 0s'
+      },
+    }
+  },
+  alternative: {
+    background: THEME().colors.button.alternative.background,
+    boxShadow: 'none',
+    color: THEME().colors.button.alternative.color,
+    $nest: {
+      '&:hover': {
+        background: THEME().colors.button.alternative.hover.background,
+        color: THEME().colors.button.alternative.hover.color,
+      },
+      '&:active': {        
+        backgroundSize: '100%',
+        boxShadow: 'none',
         transition: 'background 0s'
       },
     }

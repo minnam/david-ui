@@ -91,9 +91,9 @@ export default class Form extends Component {
             <ToolbarButton
               label={submitLabel || 'Save'}
               disabled={submitting}
-              onClick={onSubmit}
-              role='primary'
+              onClick={onSubmit}              
               style={{ marginLeft: '10px' }}
+              primary
             />
           </div>
         </Toolbar>

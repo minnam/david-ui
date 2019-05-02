@@ -128,8 +128,7 @@ export default class Dropbox extends React.Component<*, *> {
                                 </span>
                               </span>
                             </span>
-                            <Button
-                              role='circle'
+                            <Button                              
                               type='button'
                               className={CLASSNAMES.remove}
                               onClick={event => {
@@ -139,6 +138,7 @@ export default class Dropbox extends React.Component<*, *> {
                                 fields.remove(key)
                               }}
                               icon={ <i className='material-icons'>close</i> }
+                              circle
                             />
 
                           </span>

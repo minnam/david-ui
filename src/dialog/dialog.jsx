@@ -100,7 +100,7 @@ export class ModalDialogPanel extends React.Component<*, *> {
                   float: 'right'
                 }}
                 onClick = {confirm}
-                role='primary'
+                primary
               />
               <Button
                 label='Cancel'

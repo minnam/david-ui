@@ -3,6 +3,40 @@ export default {
     primary: 'rgb(26, 179, 148)',
     secondary: 'rgb(240, 128, 162)',
     warning: 'rgb(255, 159, 0)',
+    button: {
+      primary: {
+        color: 'white',
+        background: 'rgb(26, 179, 148)',
+        hover: {
+          background: 'rgba(26,179, 148, 0.7) radial-gradient(circle, transparent 1%, rgba(26,179,148,0.7) 1%) center/15000%',
+          color: 'white'
+        }
+      },
+      secondary: {
+        color: 'rgb(103,103,103)',
+        background: 'white',
+        hover: {
+          background: 'rgb(240, 240, 240) radial-gradient(circle, transparent 1%, rgb(240, 240, 240) 1%) center/15000%',
+          color: 'rgb(103,103,103)'
+        }
+      },
+      alternative: {
+        color: 'rgb(103,103,103)',
+        background: 'red',
+        hover: {
+          background: 'rgb(240, 240, 240) radial-gradient(circle, transparent 1%, rgb(240, 240, 240) 1%) center/15000%',
+          color: 'rgb(103,103,103)'
+        }
+      },
+      default: {
+        color: 'rgb(103,103,103)',
+        background: 'white',
+        hover: {
+          background: 'rgb(240, 240, 240) radial-gradient(circle, transparent 1%, rgb(240, 240, 240) 1%) center/15000%',
+          color: 'rgb(103,103,103)'
+        }
+      },      
+    },
     alt: [
       {
         primary: 'rgb(64, 190, 250)',
@@ -36,6 +70,7 @@ export default {
     background: {
       primary: 'rgb(255, 255, 255)',
       secondary: 'rgb(229, 229, 229)',
+      tertiary: 'red',
       sidebar: 'rgb(41, 54, 66)',
       disabled: 'rgb(210, 210, 210)',
     },
