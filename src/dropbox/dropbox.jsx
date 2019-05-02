@@ -175,6 +175,7 @@ export default class Dropbox extends React.Component<*, *> {
 
   componentWillReceiveProps (nextProps) {
     const { fields } = nextProps
+
     if (fields.getAll()) {
       this.setState({
         files: [...fields.getAll()]
