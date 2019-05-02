@@ -57,7 +57,6 @@ const Button = (props: {
     style,
     to,
     type,
-
     /** Button Types */
     primary,
     secondary,
@@ -164,6 +163,8 @@ const Button = (props: {
 }
 export default Button
 
+console.log('david', THEME())
+
 /* Styles ======================================================================================= */
 export const CLASSNAMES = stylesheet({
   button: {
@@ -225,6 +226,22 @@ export const CLASSNAMES = stylesheet({
       '&:hover': {
         background: THEME().colors.button.alternative.hover.background,
         color: THEME().colors.button.alternative.hover.color,
+      },
+      '&:active': {        
+        backgroundSize: '100%',
+        boxShadow: 'none',
+        transition: 'background 0s'
+      },
+    }
+  },
+  default: {
+    background: THEME().colors.button.default.background,
+    boxShadow: 'none',
+    color: THEME().colors.button.default.color,
+    $nest: {
+      '&:hover': {
+        background: THEME().colors.button.default.hover.background,
+        color: THEME().colors.button.default.hover.color,
       },
       '&:active': {        
         backgroundSize: '100%',
