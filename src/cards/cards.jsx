@@ -276,16 +276,18 @@ class Cards extends Component<*, *> {
     if (fields.length !== nextProps.fields.length) {
       const newFilterTargets = []
 
-      nextProps.fields.getAll().map(field => {
-        for (const key in filterTargets) {
-          const value = field.value[filterTargetKey]
-          const target = filterTargets[key][filterTargetKey]
-
-          if (value && target && value._id === filterTargets[key][filterTargetKey]._id) {
-            newFilterTargets.push({ [filterTargetKey]: value })
+      if (nextProps.fields.getAll()) {
+        nextProps.fields.getAll().map(field => {
+          for (const key in filterTargets) {
+            const value = field.value[filterTargetKey]
+            const target = filterTargets[key][filterTargetKey]
+  
+            if (value && target && value._id === filterTargets[key][filterTargetKey]._id) {
+              newFilterTargets.push({ [filterTargetKey]: value })
+            }
           }
-        }
-      })
+        })
+      }
 
       this.setState({ filterTargets: newFilterTargets })
     }
