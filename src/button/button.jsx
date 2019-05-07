@@ -97,6 +97,10 @@ const Button = (props: {
     buttonType = CLASSNAMES.circle
   }
 
+  if (disabled) {
+    buttonType = CLASSNAMES.disabled
+  }
+
   return <span
     className='no-print'
     style={{

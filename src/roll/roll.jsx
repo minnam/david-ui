@@ -212,6 +212,12 @@ export default class Roll extends React.Component<*, *> {
       }
     }
   }
+
+  componentWillReceiveProps () {
+    const { meta, input } = this.props
+
+    console.log(meta, input)
+  }
 }
 
 /* Styles ======================================================================================= */
