@@ -66,6 +66,7 @@ export default class DateTimePicker extends React.Component<* , *> {
       selectedDate,
     } = this.state
 
+  
     return (
       <FieldWrapper
         label = {label}
@@ -145,13 +146,24 @@ export default class DateTimePicker extends React.Component<* , *> {
    */
   constructor (props: *) {
     super(props)
-    const { input } = props
+    const { 
+      defaultValue,
+      displayTime = true,
+      input
+    } = props
 
-    this.state = {
+    const state = {
       hovered: false,
       toggled: false,
       selectedDate: input.value ? new Date(input.value) : new Date()
     }
+
+    if (defaultValue) {
+      input.onChange(formatDate(defaultValue, { month: true, day: true, year: true, time: displayTime }))
+      state.selectedDate = defaultValue
+    }    
+
+    this.state = state
   }
 
   /**

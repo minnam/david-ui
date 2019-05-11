@@ -132,6 +132,7 @@ const FieldWrapper = (props: {
         className={classes(
           CLASSNAMES[`${classNamePrefix}TextHelp`],
           errorClassName,
+          'david-ui-error',
           'no-select'
         )}
       >

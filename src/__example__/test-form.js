@@ -11,6 +11,7 @@ import {
   Cards,
   Col,
   Dropbox,
+  DateTimePicker,
   DropdownList,
   Form,
   FormSection,
@@ -180,6 +181,15 @@ class TestForm extends Component {
       </Table>
       <Form>
         <FormSection>
+          <Field
+            label='Date'
+            name='date'
+            showTime={false}
+            component={DateTimePicker}
+            defaultValue={new Date()}
+            validate={[validation.required]}
+            isRequired
+          />
           <Field
             label='Weather AM'
             name='weatherAm'
