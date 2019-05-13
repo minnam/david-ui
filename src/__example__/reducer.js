@@ -1,8 +1,12 @@
-import { GET_NAME, SET_FILTER } from './actions'
+import { 
+  GET_NAME, 
+  SET_FILTER,
+  SET_INITIAL_VALUES
+} from './actions'
 
 const INITIAL_STATE = {
   name: '',
-  filterData: {}
+  filterData: {},
 }
 const exampleForm = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -15,6 +19,11 @@ const exampleForm = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       filterData: action.filterData
+    }
+  case SET_INITIAL_VALUES:
+    return {
+      ...state,
+      initialValues: action.initialValues
     }
   default:
     return state

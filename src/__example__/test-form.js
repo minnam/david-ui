@@ -23,7 +23,7 @@ import {
   Toggle,
   validation
 } from '../'
-import { getName, setFilter } from './actions'
+import { getName, setFilter, setInitialValues } from './actions'
 
 import { TEST_CARD_MODEL } from './card-model'
 import { ROLL_MODEL } from './roll-model'
@@ -179,6 +179,11 @@ class TestForm extends Component {
           })
         }
       </Table>
+      <button
+        onClick={() => {
+          this.props.setInitialValues({date: "May 12, 2019 07:34 PM", roll: {index: 1, description: "<p>aergaerg</p>"}})
+        }}
+      >Set initialValues </button>
       <Form>
         <FormSection>
           <Field
@@ -241,9 +246,13 @@ TestForm = reduxForm({
 
 export default connect(
   (state) => {
-    return { test: state.test }
+    return { 
+      test: state.test,
+      initialValues: state.test.initialValues
+    }
   }, {
     getName,
-    setFilter
+    setFilter,
+    setInitialValues
   }
 )(TestForm)

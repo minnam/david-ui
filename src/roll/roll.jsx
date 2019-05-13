@@ -213,11 +213,13 @@ export default class Roll extends React.Component<*, *> {
     }
   }
 
-  componentWillReceiveProps () {
-    const { meta, input } = this.props
+  componentWillReceiveProps (nextProps) {
+    const { meta, input } = nextProps
 
-    if (meta.initial) {
-      console.log(input.name, meta.initial)
+    if (input.value) {
+      if (input.value.index !== undefined) {
+        this.setState({ index: input.value.index })
+      }
     }
   }
 }
