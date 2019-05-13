@@ -216,7 +216,9 @@ export default class Roll extends React.Component<*, *> {
   componentWillReceiveProps () {
     const { meta, input } = this.props
 
-    console.log(meta, input)
+    if (meta.initial) {
+      console.log(input.name, meta.initial)
+    }
   }
 }
 
