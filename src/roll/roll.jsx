@@ -220,6 +220,8 @@ export default class Roll extends React.Component<*, *> {
       if (input.value.index !== undefined) {
         this.setState({ index: input.value.index })
       }
+    } else {
+      this.setState({ index: 0 })
     }
   }
 }

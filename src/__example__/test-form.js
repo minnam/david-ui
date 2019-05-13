@@ -183,7 +183,16 @@ class TestForm extends Component {
         onClick={() => {
           this.props.setInitialValues({date: "May 12, 2019 07:34 PM", roll: {index: 1, description: "<p>aergaerg</p>"}})
         }}
-      >Set initialValues </button>
+      >
+        Set initialValues
+      </button>
+      <button
+        onClick={() => {
+          this.props.setInitialValues({})
+        }}
+      >
+        Reset initialValues
+      </button>
       <Form>
         <FormSection>
           <Field
