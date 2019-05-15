@@ -19,6 +19,8 @@ export default class Gallery extends Component<*, *> {
     baseUrl: string,
     /** Array of image (file) objects */
     images: [{ path: string }]
+    /** Style object to be applied to images */
+    imageStyle: object
   }
   state: {
     /** An index is first given as a props because user can click any image to magnify */
@@ -44,7 +46,7 @@ export default class Gallery extends Component<*, *> {
           if (tempImage.width > tempImage.height) {
             return (
               <div className={CLASSNAMES.landscape}>
-                <img src={imageSource}/>
+                <img src={imageSource} style={imageStyle}/>
                 <a
                   className={CLASSNAMES.button.fullscreen}
                   href={imageSource}
@@ -57,7 +59,7 @@ export default class Gallery extends Component<*, *> {
           } else {
             return (
               <div className={CLASSNAMES.portrait}>
-                <img src={imageSource}/>
+                <img src={imageSource} style={ imageStyle }/>
                 <a
                   className={CLASSNAMES.button.fullscreen}
                   href={imageSource}
@@ -132,6 +134,7 @@ const CLASSNAMES = {
   }),
   landscape: style({
     position: 'relative',
+    overflow: 'hidden',
     $nest: {
       '& img': {
         width: 700
