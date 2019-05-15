@@ -18,7 +18,7 @@ export default class Gallery extends Component<*, *> {
     /** Actual file path is given from backend, therefore need to replace it with backend url */
     baseUrl: string,
     /** Array of image (file) objects */
-    images: [{ path: string }]
+    images: [{ path: string }],
     /** Style object to be applied to images */
     imageStyle: object
   }
