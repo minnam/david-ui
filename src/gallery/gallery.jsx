@@ -28,7 +28,7 @@ export default class Gallery extends Component<*, *> {
   }
 
   render () {
-    const { baseUrl, images } = this.props
+    const { baseUrl, images, imageStyle } = this.props
     const { index } = this.state
     const imageSource = `${baseUrl}/${images[index].path.replace('public/', '')}`
     const tempImage = new Image()
@@ -59,7 +59,7 @@ export default class Gallery extends Component<*, *> {
           } else {
             return (
               <div className={CLASSNAMES.portrait}>
-                <img src={imageSource} style={ imageStyle }/>
+                <img src={imageSource} style={imageStyle}/>
                 <a
                   className={CLASSNAMES.button.fullscreen}
                   href={imageSource}
