@@ -390,6 +390,7 @@ export const CLASSNAMES = stylesheet({
         width: '100%',
       },
       '& th': {
+        cursor: 'pointer',
         paddingLeft: 15,
         paddingTop: 0,
         paddingBottom: 15,

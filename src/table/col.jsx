@@ -51,7 +51,6 @@ const Col = (props: {
       primary && CLASSNAMES.primary,
       className
     )}
-    style={styles}
   >
     <span
       className={classes(
@@ -60,7 +59,8 @@ const Col = (props: {
         disable && 'no-select'
       )}
       style={{
-        color: highlight ? '#fc4e4e' : ''
+        color: highlight ? '#fc4e4e' : '',
+        cursor: to ? 'pointer' : ''
       }}
     >
       {

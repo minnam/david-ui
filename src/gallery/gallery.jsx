@@ -18,7 +18,7 @@ export default class Gallery extends Component<*, *> {
     /** Actual file path is given from backend, therefore need to replace it with backend url */
     baseUrl: string,
     /** Array of image (file) objects */
-    images: [{ path: string }],
+    images: [{ path: string, orientation: number }],
     /** Style object to be applied to images */
     imageStyle: object
   }
@@ -32,8 +32,13 @@ export default class Gallery extends Component<*, *> {
     const { index } = this.state
     const imageSource = `${baseUrl}/${images[index].path.replace('public/', '')}`
     const tempImage = new Image()
-    tempImage.src = imageSource
+    let correctRotation = 0
 
+    tempImage.src = imageSource
+    if (images[index].orientation) {
+      correctRotation = this.setRotation(images[index].orientation)
+    }
+    
     return <div className={CLASSNAMES.wrapper}>
       <div
         className={classes(CLASSNAMES.navigator, 'no-select')}
@@ -46,7 +51,7 @@ export default class Gallery extends Component<*, *> {
           if (tempImage.width > tempImage.height) {
             return (
               <div className={CLASSNAMES.landscape}>
-                <img src={imageSource} style={imageStyle}/>
+                <img src={imageSource} style={{ ...imageStyle, transform: `rotate(${correctRotation}deg)` }}/>
                 <a
                   className={CLASSNAMES.button.fullscreen}
                   href={imageSource}
@@ -59,7 +64,7 @@ export default class Gallery extends Component<*, *> {
           } else {
             return (
               <div className={CLASSNAMES.portrait}>
-                <img src={imageSource} style={imageStyle}/>
+                <img src={imageSource} style={{ ...imageStyle, transform: `rotate(${correctRotation}deg)` }}/>
                 <a
                   className={CLASSNAMES.button.fullscreen}
                   href={imageSource}
@@ -108,6 +113,26 @@ export default class Gallery extends Component<*, *> {
     this.setState({
       index: (index + 1) % images.length
     })
+  }
+
+  setRotation = (exif) => {
+    let rotation = 0
+    switch (exif) {
+    case 1:
+      rotation = 0
+      break
+    case 3:
+      rotation = 180
+      break
+    case 6:
+      rotation = 90
+      break
+    case 8:
+      rotation = -90
+      break
+    }
+  
+    return rotation
   }
 }
 
