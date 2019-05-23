@@ -13,6 +13,8 @@ import ToolbarBreak from './toolbar-break'
 import ToolbarButton from './toolbar-button'
 import ToolbarDropdown from './toolbar-dropdown'
 import ToolbarHighlight from './toolbar-highlight'
+import ToolbarMenu from './toolbar-menu'
+import ToolbarMenuItem from './toolbar-menu-item'
 import ToolbarTitle from './toolbar-title'
 import ToolbarTitleContainer from './toolbar-title-container'
 
@@ -22,6 +24,8 @@ export {
   ToolbarButton,
   ToolbarDropdown,
   ToolbarHighlight,
+  ToolbarMenu,
+  ToolbarMenuItem,
   ToolbarTitle,
   ToolbarTitleContainer
 }

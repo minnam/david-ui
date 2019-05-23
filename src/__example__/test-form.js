@@ -21,8 +21,14 @@ import {
   Table,
   TextField,
   Toggle,
-  validation
-} from '../'
+  Toolbar,
+  validation,
+  ToolbarTitleContainer,
+  ToolbarDropdown,
+  ToolbarMenu,
+  ToolbarMenuItem,
+  ToolbarTitle
+} from '..'
 import { getName, setFilter, setInitialValues } from './actions'
 
 import { TEST_CARD_MODEL } from './card-model'
@@ -123,11 +129,93 @@ const TEST_ROWS = [
 ]
 
 class TestForm extends Component {
+  state = {
+    dropdownIndex: 0
+  }
   componentDidMount () {
     this.props.setFilter({
       sort: 'name field'
     })
     this.props.getName()
+  }
+
+  renderTitle() {
+    return (
+      <ToolbarTitleContainer>
+        <ToolbarTitle
+          title='Projects'
+        />
+        <ToolbarMenu
+          to={'https://www.google.com'}
+          heading={ 'Project X' }
+          width={ 120 }
+          maxHeight={ 150 }
+        >
+          <ToolbarMenuItem title={ 'Project A' } to={'https://developer.mozilla.org/en-US/docs/Web/CSS/position'}/>
+          <ToolbarMenuItem title={ 'Project B' }/>
+          <ToolbarMenuItem title={ 'Project C' }/>
+          <ToolbarMenuItem title={ 'Project D' }/>
+          <ToolbarMenuItem title={ 'Project E' }/>
+          <ToolbarMenuItem title={ 'Project F' }/>
+          <ToolbarMenuItem title={ 'Project G' }/>
+          <ToolbarMenuItem title={ 'Project H' }/>
+          <ToolbarMenuItem title={ 'Project I' }/>
+        </ToolbarMenu>
+        <ToolbarMenu
+          heading={ 'Dailies' }
+          width={180}
+        >
+          <ToolbarMenuItem title={ 'Analysis' } to={'https://www.google.com'} />
+          <ToolbarMenuItem title={ 'Trades' }/>
+          <ToolbarMenuItem title={ 'Users' }/>
+          <ToolbarMenu
+            heading={ 'HSE Dailies' }
+            width={180}
+            offset={180}
+            submenu
+          >
+            <ToolbarMenuItem title={ 'HSE Dailies List' }/>
+            <ToolbarMenuItem title={ 'Analysis' }/>
+          </ToolbarMenu>
+          <ToolbarMenu
+            heading={ 'Concrete Pours' }
+            width={220}
+            offset={180}
+            submenu
+          >
+            <ToolbarMenuItem title={ 'Pours List' }/>
+            <ToolbarMenuItem title={ 'Analysis' }/>
+            <ToolbarMenuItem title={ 'Concrete Mixes List' }/>
+            <ToolbarMenuItem title={ 'Concrete Addons List' }/>
+          </ToolbarMenu>
+          <ToolbarMenu
+            heading={ 'Cost Tracking' }
+            width={180}
+            offset={180}
+            submenu
+          >
+            <ToolbarMenuItem title={ 'Cost Tracking List' }/>
+            <ToolbarMenuItem title={ 'Analysis' }/>
+            <ToolbarMenuItem title={ 'Budget List' }/>
+          </ToolbarMenu>
+        </ToolbarMenu>
+        <ToolbarDropdown
+          data={
+            [
+              {name: 'item1'},
+              {name: 'item2'},
+              {name: 'item3'}
+            ]
+          }
+          value={this.state.dropdownIndex}
+          onChange={
+            (index) => {
+              this.setState({dropdownIndex: index})
+            }
+          }
+        />
+      </ToolbarTitleContainer>
+    )
   }
 
   render () {
@@ -193,7 +281,9 @@ class TestForm extends Component {
       >
         Reset initialValues
       </button>
-      <Form>
+      <Form
+        title={this.renderTitle()}
+      >
         <FormSection>
           <Field
             label='Date'

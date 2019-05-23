@@ -37,6 +37,8 @@ import {
   ToolbarButton,
   ToolbarDropdown,
   ToolbarHighlight,
+  ToolbarMenu,
+  ToolbarMenuItem,
   ToolbarTitle,
   ToolbarTitleContainer
 } from './toolbar'
@@ -121,6 +123,8 @@ export {
   ToolbarButton,
   ToolbarDropdown,
   ToolbarHighlight,
+  ToolbarMenu,
+  ToolbarMenuItem,
   ToolbarTitle,
   ToolbarTitleContainer,
   FilterWrapper,
