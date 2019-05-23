@@ -312,6 +312,7 @@ class TestForm extends Component {
           <Field
             label='Name'
             name='name'
+            defaultValue='hello'
             component={TextField}
           />
           <Field
