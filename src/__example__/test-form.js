@@ -148,8 +148,8 @@ class TestForm extends Component {
         <ToolbarMenu
           to={'https://www.google.com'}
           heading={ 'Project X' }
-          width={ 120 }
-          maxHeight={ 150 }
+          width={ 180 }
+          maxHeight={ 250 }
         >
           <ToolbarMenuItem title={ 'Project A' } to={'https://developer.mozilla.org/en-US/docs/Web/CSS/position'}/>
           <ToolbarMenuItem title={ 'Project B' }/>
@@ -199,6 +199,7 @@ class TestForm extends Component {
             <ToolbarMenuItem title={ 'Budget List' }/>
           </ToolbarMenu>
         </ToolbarMenu>
+
         <ToolbarDropdown
           data={
             [
