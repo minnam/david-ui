@@ -70,7 +70,8 @@ type CardModelType = {
   type: string,
   /** API URL for debounce input */
   url: string,
-  validate: () => boolean
+  validate: () => boolean,
+  normalize: () => {},
 }
 
 type CardModelsType = Array<CardModelType>
@@ -396,6 +397,7 @@ class Cards extends Component<*, *> {
           component={TextField}
           label={modelField.label}
           validate={modelField.validate}
+          normalize={modelField.normalize}
           placeholder={modelField.placeHolder}
           defaultValue={modelField.defaultValue}
           key={key2}
