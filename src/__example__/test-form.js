@@ -260,7 +260,7 @@ class TestForm extends Component {
         {
           TEST_ROWS.map((row, key) => {
             return <Row key={key}>
-              <Col>{row[0]}</Col>
+              <Col onClick={() => { console.log(row) }}>{row[0]}</Col>
               <Col>{row[1]}</Col>
               <Col>{row[2]}</Col>
             </Row>

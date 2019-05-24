@@ -60,7 +60,7 @@ const Col = (props: {
       )}
       style={{
         color: highlight ? '#fc4e4e' : '',
-        cursor: 'pointer'
+        cursor: to || onClick ? 'pointer' : ''
       }}
     >
       {
