@@ -274,6 +274,7 @@ class Table extends Component<*, *> {
                   key={key}
                   className={header.className}
                   style={{
+                    cursor: headerOnClick && header.field ? 'pointer' : '',
                     width: `${header.size * 100}%`,
                     position: 'relative',
                     ...header.style
@@ -390,7 +391,6 @@ export const CLASSNAMES = stylesheet({
         width: '100%',
       },
       '& th': {
-        cursor: 'pointer',
         paddingLeft: 15,
         paddingTop: 0,
         paddingBottom: 15,
