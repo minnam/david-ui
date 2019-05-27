@@ -15,7 +15,7 @@ const ToolbarMenuItem = (props) => {
       {
         (() => {
           if (to) {
-            return <a href={to} onClick={onClick}>{title}</a>
+            return <Link href={to} onClick={onClick}>{title}</Link>
           }
           return <span onClick={onClick}>{title}</span>
         })()

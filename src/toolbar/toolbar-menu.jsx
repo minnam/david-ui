@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { stylesheet } from 'typestyle'
 
 class ToolbarMenu extends React.Component {
@@ -29,7 +30,7 @@ class ToolbarMenu extends React.Component {
             {
               (() => {
                 if (to) {
-                  return <a href={ to } onClick={ onClick }>{ heading }</a>
+                  return <Link href={ to } onClick={ onClick }>{ heading }</Link>
                 }
                 return <span onClick={ onClick }>{ heading }</span>
               })()
