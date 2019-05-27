@@ -30,7 +30,7 @@ class ToolbarMenu extends React.Component {
             {
               (() => {
                 if (to) {
-                  return <Link href={ to } onClick={ onClick }>{ heading }</Link>
+                  return <Link to={ to } onClick={ onClick }>{ heading }</Link>
                 }
                 return <span onClick={ onClick }>{ heading }</span>
               })()
