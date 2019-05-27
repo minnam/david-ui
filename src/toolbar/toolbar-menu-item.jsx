@@ -3,25 +3,17 @@ import { Link } from 'react-router-dom'
 import { style } from 'typestyle'
 
 const ToolbarMenuItem = (props) => {
-  const { onClick, title, to } = props
+  const { onClick, content, to } = props
   const menuItem = style({
     $nest: {
       '&:hover': { background: 'rgb(240,240,240)' }
     } 
   })
   
-  return (
-    <div className={ menuItem } >
-      {
-        (() => {
-          if (to) {
-            return <Link to={to} onClick={onClick}>{title}</Link>
-          }
-          return <span onClick={onClick}>{title}</span>
-        })()
-      }
-    </div>
-  )
+  if (to) {
+    return <Link className={ menuItem } style={{ display: 'block' }} to={ to } onClick={ onClick }>{ content }</Link>
+  }
+  return <div className={ menuItem } onClick={ onClick }>{ content }</div>
 }
 
 export default ToolbarMenuItem

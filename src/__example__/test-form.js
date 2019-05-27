@@ -146,36 +146,40 @@ class TestForm extends Component {
           title='Projects'
         />
         <ToolbarMenu
-          to={'https://www.google.com'}
+          // to={'https://www.google.com'}
           heading={ 'Project X' }
           width={ 180 }
           maxHeight={ 250 }
         >
-          <ToolbarMenuItem title={ 'Project A' } to={'https://developer.mozilla.org/en-US/docs/Web/CSS/position'}/>
-          <ToolbarMenuItem title={ 'Project B' }/>
-          <ToolbarMenuItem title={ 'Project C' }/>
-          <ToolbarMenuItem title={ 'Project D' }/>
-          <ToolbarMenuItem title={ 'Project E' }/>
-          <ToolbarMenuItem title={ 'Project F' }/>
-          <ToolbarMenuItem title={ 'Project G' }/>
-          <ToolbarMenuItem title={ 'Project H' }/>
-          <ToolbarMenuItem title={ 'Project I' }/>
+          {
+            (() => {
+              const rows = []
+              for (let i = 0; i < 30; ++i) {
+                rows.push( <ToolbarMenuItem content={ 'Project ' + i }/>)
+              }
+              return rows
+            })()
+          }
+
         </ToolbarMenu>
         <ToolbarMenu
           heading={ 'Dailies' }
           width={180}
+          onClick={() => { console.log('clicked menu') }}
         >
-          <ToolbarMenuItem title={ 'Analysis' } to={'https://www.google.com'} />
-          <ToolbarMenuItem title={ 'Trades' }/>
-          <ToolbarMenuItem title={ 'Users' }/>
+          <ToolbarMenuItem content={ 'Analysis' } onClick={() => { console.log('clicked item') }}/>
+          <ToolbarMenuItem content={ 'Trades' } onClick={() => { console.log('clicked item') }}/>
+          <ToolbarMenuItem content={ 'Users' }/>
           <ToolbarMenu
             heading={ 'HSE Dailies' }
+            // to={'https://www.google.com'}
             width={180}
             offset={180}
             submenu
+            onClick={() => { console.log('clicked menu') }}
           >
-            <ToolbarMenuItem title={ 'HSE Dailies List' }/>
-            <ToolbarMenuItem title={ 'Analysis' }/>
+            <ToolbarMenuItem content={ 'HSE Dailies List' }/>
+            <ToolbarMenuItem content={ 'Analysis' }/>
           </ToolbarMenu>
           <ToolbarMenu
             heading={ 'Concrete Pours' }
@@ -183,10 +187,10 @@ class TestForm extends Component {
             offset={180}
             submenu
           >
-            <ToolbarMenuItem title={ 'Pours List' }/>
-            <ToolbarMenuItem title={ 'Analysis' }/>
-            <ToolbarMenuItem title={ 'Concrete Mixes List' }/>
-            <ToolbarMenuItem title={ 'Concrete Addons List' }/>
+            <ToolbarMenuItem content={ 'Pours List' }/>
+            <ToolbarMenuItem content={ 'Analysis' }/>
+            <ToolbarMenuItem content={ 'Concrete Mixes List' }/>
+            <ToolbarMenuItem content={ 'Concrete Addons List' }/>
           </ToolbarMenu>
           <ToolbarMenu
             heading={ 'Cost Tracking' }
@@ -194,9 +198,9 @@ class TestForm extends Component {
             offset={180}
             submenu
           >
-            <ToolbarMenuItem title={ 'Cost Tracking List' }/>
-            <ToolbarMenuItem title={ 'Analysis' }/>
-            <ToolbarMenuItem title={ 'Budget List' }/>
+            <ToolbarMenuItem content={ 'Cost Tracking List' }/>
+            <ToolbarMenuItem content={ 'Analysis' }/>
+            <ToolbarMenuItem content={ 'Budget List' }/>
           </ToolbarMenu>
         </ToolbarMenu>
 

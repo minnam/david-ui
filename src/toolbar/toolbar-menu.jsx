@@ -4,7 +4,7 @@ import { stylesheet } from 'typestyle'
 
 class ToolbarMenu extends React.Component {
     state = {
-      toggled: false
+      isOpen: false
     }
 
     render () {
@@ -18,41 +18,54 @@ class ToolbarMenu extends React.Component {
         width
       } = this.props
       const {
-        toggled
+        isOpen
       } = this.state
 
       return (
         <div className={ CLASSNAMES.menuWrapper }
-          onMouseEnter={ () => { this.setState({ toggled: true }) } }
-          onMouseLeave={ () => { this.setState({ toggled: false }) } }
+          onMouseEnter={ () => { this.setState({ isOpen: true }) } }
+          onMouseLeave={ () => { this.setState({ isOpen: false }) } }
         >
-          <div className={ CLASSNAMES.menuLabel }>
-            {
-              (() => {
-                if (to) {
-                  return <Link to={ to } onClick={ onClick }>{ heading }</Link>
-                }
-                return <span onClick={ onClick }>{ heading }</span>
-              })()
-            }
-            { submenu && <i className={ 'material-icons' }>arrow_right</i> }
-          </div>
-          { toggled &&
-            <div
-              className={ CLASSNAMES.menuList }
-              style={{
-                left: submenu && offset,
-                maxHeight,
-                overflow: maxHeight && 'auto',
-                top: submenu && 0, 
-                width,
-
-              }}
-            >
-              { this.props.children }
-            </div>
-
+          {
+            (() => {
+              if (to) {
+                return (
+                  <Link 
+                    to={ to }
+                    onClick={ onClick }
+                  >
+                    <div className={CLASSNAMES.menuLabel }>
+                      { heading }
+                      { submenu && <i className={ 'material-icons' }>arrow_right</i> }
+                    </div>
+                  </Link>
+                )
+              }
+              return (
+                <div
+                  className={CLASSNAMES.menuLabel }
+                  onClick={ onClick }
+                >
+                  { heading }
+                  { submenu && <i className={ 'material-icons' }>arrow_right</i> }
+                </div>
+              )
+            })()
           }
+          
+          <div
+            className={ CLASSNAMES.menuList }
+            style={{
+              display: !isOpen && 'none',
+              left: submenu && offset,
+              maxHeight,
+              overflow: maxHeight && 'auto',
+              top: submenu && 0, 
+              width,
+            }}
+          >
+            { this.props.children }
+          </div>
         </div>
       )
     }
