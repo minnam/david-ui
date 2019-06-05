@@ -128,6 +128,33 @@ const TEST_ROWS = [
   ['test', 5, 6],
 ]
 
+const testUsers = [
+  {
+    name: 'aaa',
+    position: 'Job2'
+  },
+  {
+    name: 'bbb',
+    position: 'Job1'
+  },
+  {
+    name: 'ccc',
+    position: 'Job1'
+  },
+  {
+    name: 'ddd',
+    position: 'Job3'
+  },
+  {
+    name: 'eee',
+    position: 'Job2'
+  },
+  {
+    name: 'fff',
+    position: 'JobN'
+  },
+]
+
 class TestForm extends Component {
   state = {
     dropdownIndex: 0
@@ -336,6 +363,7 @@ class TestForm extends Component {
           label='Test'
           name='test'
           component={Cards}
+          data={{ testUsers }}
           model={TEST_CARD_MODEL}
         />
       </Form>

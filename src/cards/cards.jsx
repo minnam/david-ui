@@ -319,13 +319,11 @@ class Cards extends Component<*, *> {
 
         /** Collect, opposite of filter */
         if (modelField.collect) {
-          modelField.collect.data.map(col => {
-            for (const index in newData) {
-              if (newData[index][modelField.collect.key] !== col) {
-                delete newData[index]
-              }
+          for (const index in newData) {
+            if (!modelField.collect.data.includes(newData[index][modelField.collect.key])) {
+              delete newData[index]
             }
-          })
+          }
         }
 
         const component = <Field
