@@ -209,7 +209,7 @@ class Table extends Component<*, *> {
                 {
                   (() => {
                     if (displayToggle) {
-                      return <th><span className={CLASSNAMES.tableEmptyCell}/></th>
+                      return <th style={{ width: 54, display: 'inline-block' }}><span className={CLASSNAMES.tableEmptyCell}/></th>
                     }
                   })()
                 }
