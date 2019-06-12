@@ -18,7 +18,7 @@ export const TEST_CARD_MODEL = {
         label: 'Collection Test',
         name: 'collectionTest',
         type: 'DropdownList',
-        data: 'testUsers',
+        data: 'users',
         // elements in data determine what passes through filter
         collect: { key: 'position', data: ['JobN', 'Job2'] },
         generateLabel: model => {

@@ -49,6 +49,7 @@ export default class Form extends Component {
       children,
       onCancel,
       onSubmit,
+      onKeyPress,
       submitting,
       submitLabel,
       title,
@@ -104,7 +105,7 @@ export default class Form extends Component {
             !finshedAnimation && ANIMATIONS.fadeInRight
           )}
         >
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} onKeyPress={onKeyPress}>
             <div className={GLOBAL_CLASSNAMES.ibox}>{children}</div>
           </form>
         </div>

@@ -122,6 +122,7 @@ class Search extends Component<Props, *> {
               )
             }
             <input
+              onKeyPress={ this.props.onKeyPress }
               className={CLASSNAMES.searchInput}
               style={(() => {
                 /** Input needs to be hidden because it will take up a space and look like input is empty */
