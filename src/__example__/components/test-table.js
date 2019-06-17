@@ -27,6 +27,9 @@ import {
 /* Test Table =================================================================================== */
 class TestTable extends Component {
   render () {
+    const rows = TEST_ROWS
+    const noRows = null
+    const emptyRows = []
     const { test } = this.props
     let sortedField = ''
     let sortIcon = ''
@@ -43,9 +46,10 @@ class TestTable extends Component {
     
     return (
       <Table
+        displayEmpty
         sortedField={ sortedField }
         sortIcon={ sortIcon }
-        headers={TEST_HEADERS}
+        // headers={TEST_HEADERS}
         headerOnClick={
           (field) => {
             let sortedField = field
@@ -68,6 +72,8 @@ class TestTable extends Component {
               <Col>{row[2]}</Col>
             </Row>
           })
+          // emptyRows
+          // noRows
         }
       </Table>
     )

@@ -1,6 +1,6 @@
 {
   "name": "david-ui",
-  "version": "1.3.30",
+  "version": "1.3.31",
   "description": "React Components for Redux-Form",
   "main": "dist/david-ui.min.js",
   "scripts": {

@@ -57,6 +57,8 @@ class Table extends Component<*, *> {
     displayFixedHeader: boolean,
     /** Display toggle button on far left */
     displayToggle: boolean,
+    /** Display message that table is empty or leave table blank */
+    displayEmpty: boolean,
     /** Pixel amount of offset before toggling fixed header */
     fixedHeaderOffset: number,
     /** <th /> contents and size */
@@ -318,7 +320,25 @@ class Table extends Component<*, *> {
   }
 
   renderBody () {
-    const { children, displayToggle, searchText } = this.props
+    const { children, displayEmpty = false, displayToggle, headers, searchText  } = this.props
+    const emptyRow = []
+    let colspan = 1
+
+    if (headers) {
+      headers.map(h => {
+        emptyRow.push(<td>-</td>)
+      })
+    }
+
+    if (displayEmpty) {
+      if (Array.isArray(children) && !children.length || !children) {
+        return <tbody>
+          <tr>
+            { emptyRow.length ? emptyRow : <td>No data</td> }
+          </tr>
+        </tbody>
+      } 
+    }
 
     return <tbody>
       {
