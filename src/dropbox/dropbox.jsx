@@ -118,7 +118,7 @@ export default class Dropbox extends React.Component<*, *> {
                                 <span className={CLASSNAMES.itemName}>
                                   <a
                                     href={
-                                      file.preview || process.env.API_URL
+                                      file.preview || '/api'
                                         + file.path.replace('public', '')
                                     }
                                     target='_blank'
