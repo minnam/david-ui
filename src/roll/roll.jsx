@@ -16,6 +16,7 @@ import type { FieldProps } from 'redux-form'
 import FieldWrapper from '../field-wrapper/field-wrapper'
 import Quill from '../quill/quill'
 import TextField from '../text-field/text-field'
+import DateTimePicker from '../date-time-picker/date-time-picker'
 
 /* <Roll /> ================================================================================= */
 export default class Roll extends React.Component<*, *> {
@@ -45,20 +46,9 @@ export default class Roll extends React.Component<*, *> {
     index: 0
   }
 
-  render () {
-    const {
-      fullwidth,
-      input,
-      label,
-      meta,
-      model,
-      style
-    } = this.props
-    const {
-      hover,
-      active,
-      index
-    } = this.state
+  render() {
+    const { fullwidth, input, label, meta, model, style } = this.props
+    const { hover, active, index } = this.state
 
     const className = `${hover ? 'hover' : ''}${active ? ' active' : ''}`
     let iconParentStyle
@@ -74,7 +64,10 @@ export default class Roll extends React.Component<*, *> {
 
     return (
       <FieldWrapper
-        className={classes(fullwidth ? CLASSNAMES.fullwidthParent : CLASSNAMES.parent, 'no-select')}
+        className={classes(
+          fullwidth ? CLASSNAMES.fullwidthParent : CLASSNAMES.parent,
+          'no-select'
+        )}
         id={`jams-${input.name}`}
         style={{
           marginBottom: 0,
@@ -85,11 +78,11 @@ export default class Roll extends React.Component<*, *> {
       >
         <div
           className={classes(CLASSNAMES.base, 'no-select')}
-          onMouseEnter= {() => {
-            this.setState({hover: true})
+          onMouseEnter={() => {
+            this.setState({ hover: true })
           }}
-          onMouseLeave= {() => {
-            this.setState({hover: false})
+          onMouseLeave={() => {
+            this.setState({ hover: false })
           }}
           onMouseDown={() => {
             this.setState({
@@ -107,7 +100,6 @@ export default class Roll extends React.Component<*, *> {
             })
           }}
         >
-
           <div className={classes(CLASSNAMES.checkboxWrapper, className)}>
             <span
               className={classes('checkbox1', active ? 'checkbox-active' : '')}
@@ -131,7 +123,7 @@ export default class Roll extends React.Component<*, *> {
         <div
           style={{
             display: model[index].fields ? 'flex' : 'none',
-            alignItems: 'top',
+            alignItems: 'top'
           }}
         >
           <div
@@ -146,43 +138,59 @@ export default class Roll extends React.Component<*, *> {
               paddingTop: 3
             }}
           >
-            {
-              (() => {
-                if (model[index].fields && model[index].fields.length > 0) {
-                  return model[index].fields.map((field, key) => {
-                    switch (field.type) {
+            {(() => {
+              if (model[index].fields && model[index].fields.length > 0) {
+                return model[index].fields.map((field, key) => {
+                  switch (field.type) {
                     case 'TextField':
-                      return <Field
-                        name={`${input.name}.${field.name}`}
-                        type='text'
-                        component={TextField}
-                        label={field.label}
-                        validate={field.validate}
-                        placeholder={field.placeHolder}
-                        defaultValue={field.defaultValue}
-                        normalize={field.normalize}
-                        help={field.help}
-                        labelStyle={{
-                          color: 'rgb(170,170,170)'
-                        }}
-                        key={key}
-                      />
-                    case 'Quill' : {
-                      return <Field
-                        name={`${input.name}.${field.name}`}                        
-                        component={Quill}
-                        label={field.label}
-                        validate={field.validate}
-                        placeholder={field.placeHolder}
-                        defaultValue={field.defaultValue}
-                        normalize={field.normalize}
-                        help={field.help}
-                        labelStyle={{
-                          color: 'rgb(170,170,170)'
-                        }}
-                        key={key}
-                      />
+                      return (
+                        <Field
+                          name={`${input.name}.${field.name}`}
+                          type='text'
+                          component={TextField}
+                          label={field.label}
+                          validate={field.validate}
+                          placeholder={field.placeHolder}
+                          defaultValue={field.defaultValue}
+                          normalize={field.normalize}
+                          help={field.help}
+                          labelStyle={{
+                            color: 'rgb(170,170,170)'
+                          }}
+                          key={key}
+                        />
+                      )
+                    case 'Quill': {
+                      return (
+                        <Field
+                          name={`${input.name}.${field.name}`}
+                          component={Quill}
+                          label={field.label}
+                          validate={field.validate}
+                          placeholder={field.placeHolder}
+                          defaultValue={field.defaultValue}
+                          normalize={field.normalize}
+                          help={field.help}
+                          labelStyle={{
+                            color: 'rgb(170,170,170)'
+                          }}
+                          key={key}
+                        />
+                      )
                     }
+                    case 'DateTimePicker':
+                      return (
+                        <Field
+                          component={DateTimePicker}
+                          defaultValue={field.defaultValue}
+                          label={field.label}
+                          name={`${field}.value.${field.name}`}
+                          displayTime={false}
+                          type='text'
+                          validate={field.validate}
+                          key={key}
+                        />
+                      )
                     // case 'Dropbox':
                     //   return <FieldArray
                     //     label={field.label}
@@ -190,18 +198,17 @@ export default class Roll extends React.Component<*, *> {
                     //     name={`${field}.value.${field.name}`}
                     //     key={key}
                     //   />
-                    }
-                  })
-                }
-              })()
-            }
+                  }
+                })
+              }
+            })()}
           </div>
         </div>
       </FieldWrapper>
     )
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const { meta } = this.props
 
     if (meta.initial) {
@@ -213,7 +220,7 @@ export default class Roll extends React.Component<*, *> {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     const { meta, input } = nextProps
 
     if (input.value) {
@@ -231,11 +238,11 @@ const CLASSNAMES = {
   parent: style({
     cursor: 'pointer',
     display: 'inline-block',
-    marginRight: 15,
+    marginRight: 15
   }),
   fullwidthParent: style({
     marginRight: 0,
-    cursor: 'pointer',
+    cursor: 'pointer'
   }),
   label: style({
     display: 'inline-block',
@@ -245,7 +252,7 @@ const CLASSNAMES = {
     cursor: 'pointer'
   }),
   base: style({
-    display: 'inline-block',
+    display: 'inline-block'
   }),
   checkHelper: style({
     background: 'rgb(255, 255, 255)',
@@ -296,7 +303,7 @@ const CLASSNAMES = {
             fontSize: 15
           }
         }
-      },
+      }
     }
   }),
   input: style({

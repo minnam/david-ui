@@ -1,3 +1,5 @@
+import { WEATHER_TYPES } from '../test-data'
+
 export const TEST_CARD_MODEL = {
   test: {
     label: 'test',
@@ -7,7 +9,7 @@ export const TEST_CARD_MODEL = {
         label: 'Name',
         name: 'name',
         placeHolder: 'Enter Name',
-        type: 'TextField',
+        type: 'TextField'
       },
       {
         label: 'Description',
@@ -18,12 +20,12 @@ export const TEST_CARD_MODEL = {
         label: 'Collection Test',
         name: 'collectionTest',
         type: 'DropdownList',
-        data: 'users',
+        data: WEATHER_TYPES,
         // elements in data determine what passes through filter
-        collect: { key: 'position', data: ['JobN', 'Job2'] },
+        collect: { key: 'label', data: ['label'] },
         generateLabel: model => {
-          return model['name']
-        },
+          return model['label']
+        }
       }
     ]
   }

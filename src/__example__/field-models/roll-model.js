@@ -13,10 +13,14 @@ export const ROLL_MODEL = [
     },
     fields: [
       {
-        label: 'Plan to mitigate hazards and risk',
-        name: 'description',
-        type: 'Quill',
-        help: 'Explain how the hazards and risks associated with this work activity will be mitigated.',
+        label: 'Start Date',
+        name: 'startDate',
+        type: 'DateTimePicker'
+      },
+      {
+        label: 'End Date',
+        name: 'endDate',
+        type: 'DateTimePicker'
       }
     ]
   },
@@ -29,5 +33,5 @@ export const ROLL_MODEL = [
     iconStyle: {
       color: 'white'
     }
-  },
+  }
 ]
