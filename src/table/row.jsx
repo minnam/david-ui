@@ -218,7 +218,7 @@ const CLASSNAMES = stylesheet({
     zIndex: 2000
   },
   rowSelected: {
-    borderLeft: `2px solid ${THEME().colors.button.primary.background}`,
+    borderLeft: `4px solid ${THEME().colors.button.primary.background}`,
   }
 })
 
