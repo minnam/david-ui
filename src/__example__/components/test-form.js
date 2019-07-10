@@ -10,6 +10,9 @@ import {
   Cards,
   Col,
   Dropbox,
+  Avatar,
+  AutoSuggest,
+  DebounceInput,
   DateTimePicker,
   DropdownList,
   Form,
@@ -77,6 +80,8 @@ class TestForm extends Component {
           onKeyPress={testKeys}
         >
           <FormSection>
+            <Field label='hi' name='hi' component={AutoSuggest} />
+            <Field label='debounce' name='debounce' component={DebounceInput} />
             <Field
               label='Date'
               name='date'
