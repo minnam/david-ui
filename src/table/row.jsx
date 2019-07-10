@@ -118,7 +118,8 @@ class Row extends Component<*, *> {
       return (
         <td
           className={CLASSNAMES.rowData}
-          onClick={() => {
+          onClick={e => {
+            e.stopPropagation()
             this.setState({ toggled: !toggled })
             onToggle()
           }}
@@ -159,7 +160,8 @@ class Row extends Component<*, *> {
                   if (element) {
                     return React.cloneElement(element, {
                       key,
-                      onClick: () => {
+                      onClick: e => {
+                        e.stopPropagation()
                         if (element.props.onClick) {
                           element.props.onClick()
                         }
