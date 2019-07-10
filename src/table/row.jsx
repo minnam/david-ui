@@ -153,7 +153,7 @@ class Row extends Component<*, *> {
           />
           {
             actionToggled ? <span
-              className={classes(CLASSNAMES.actionDialog, ANIMATIONS.fadeInUp)}
+              className={classes(CLASSNAMES.actionDialog)}
             >
               {
                 actions.map((element, key) => {
@@ -161,7 +161,6 @@ class Row extends Component<*, *> {
                     return React.cloneElement(element, {
                       key,
                       onClick: e => {
-                        e.stopPropagation()
                         if (element.props.onClick) {
                           element.props.onClick()
                         }
