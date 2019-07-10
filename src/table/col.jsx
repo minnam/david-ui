@@ -80,7 +80,10 @@ const Col = (props: {
           if (onClick) {
             return <a
               className={CLASSNAMES.wrapper}
-              onClick={onClick}
+              onClick={e => {
+                e.stopPropagation()
+                onClick()
+              }}
             >
               {children}
             </a>
