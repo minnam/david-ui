@@ -143,7 +143,8 @@ class Row extends Component<*, *> {
       return (
         <td
           className={CLASSNAMES.rowData}
-          onClick={() => {
+          onClick={e => {
+            e.stopPropagation()
             this.setState({ actionToggled: true })
           }}
         >
