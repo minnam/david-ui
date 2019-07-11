@@ -140,7 +140,7 @@ class Table extends Component<*, *> {
         { headers ? this.renderFixedHeader() : null}
         {/* Animation Wrapper */}
         <div
-          className= {classes(GLOBAL_CLASSNAMES.wrapperContent, this.state.loaded && ANIMATIONS.fadeInRight)}
+          className= {classes(GLOBAL_CLASSNAMES.wrapperContent)}
           style={style}
         >
           {/* Table Wrapper */}

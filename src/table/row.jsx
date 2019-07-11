@@ -68,8 +68,7 @@ class Row extends Component<*, *> {
           cursor: onClick && 'pointer',
           ...style
         }}
-        onClick={e => {
-          e.stopPropagation()
+        onClick={e => {          
           onClick()
         }}
         onMouseLeave={() => {
@@ -161,6 +160,7 @@ class Row extends Component<*, *> {
                     return React.cloneElement(element, {
                       key,
                       onClick: e => {
+                        e.stopPropagation()
                         if (element.props.onClick) {
                           element.props.onClick()
                         }
