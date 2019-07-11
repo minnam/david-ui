@@ -153,7 +153,7 @@ class Row extends Component<*, *> {
           />
           {
             actionToggled ? <span
-              className={classes(CLASSNAMES.actionDialog)}
+              className={classes(CLASSNAMES.actionDialog, ANIMATIONS.fadeInDown)}
             >
               {
                 actions.map((element, key) => {
