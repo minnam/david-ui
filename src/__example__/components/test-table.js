@@ -26,6 +26,9 @@ import {
 
 /* Test Table =================================================================================== */
 class TestTable extends Component {
+  state={
+    selected: []
+  }
   render () {
     const rows = TEST_ROWS
     const noRows = null
@@ -66,7 +69,17 @@ class TestTable extends Component {
       >
         {
           TEST_ROWS.map((row, key) => {
-            return <Row key={key}>
+            return <Row key={key}
+              selected={this.state.selected.indexOf(row[0]) !== -1}
+              onClick={() => {
+                
+                const selected = [ ...this.state.selected, row[0] ]
+              
+                this.setState({
+                  selected: selected
+                })
+              }}
+            >
               <Col onClick={() => { console.log(row) }}>{row[0]}</Col>
               <Col>{row[1]}</Col>
               <Col>{row[2]}</Col>

@@ -115,6 +115,7 @@ class Table extends Component<*, *> {
   state = {
     fixedHeaderToggled: false,
     searchToggled: false,
+    loaded: false
   }
 
   render () {
@@ -139,7 +140,7 @@ class Table extends Component<*, *> {
         { headers ? this.renderFixedHeader() : null}
         {/* Animation Wrapper */}
         <div
-          className= {classes(GLOBAL_CLASSNAMES.wrapperContent, ANIMATIONS.fadeInRight)}
+          className= {classes(GLOBAL_CLASSNAMES.wrapperContent)}
           style={style}
         >
           {/* Table Wrapper */}
@@ -163,6 +164,7 @@ class Table extends Component<*, *> {
 
   componentDidMount () {
     window.addEventListener('scroll', this.toggleFixedHeader)
+    this.setState({ loaded: true })
   }
 
   componentWillUnmount () {

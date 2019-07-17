@@ -19,6 +19,9 @@ import IconButton from '../icon-button/icon-button'
 import Toggle from '../toggle/toggle'
 import { ANIMATIONS } from '..'
 
+/* Common ======================================================================================= */
+import THEME from '../theme-handler'
+
 /* <Row /> ====================================================================================== */
 class Row extends Component<*, *> {
   /* Prop Types ================================================================================= */
@@ -46,14 +49,28 @@ class Row extends Component<*, *> {
   }
 
   render () {
-    const { children, className, displayToggle, style, disable } = this.props
+    const { 
+      children, 
+      className, 
+      disable,
+      displayToggle, 
+      onClick,
+      selected,
+      style, 
+    } = this.props
     const { actionToggled } = this.state
 
     return (
       <tr
-        className={classes(className, CLASSNAMES.base, actionToggled && 'no-select')}
+        className={classes(className, CLASSNAMES.base, actionToggled && 'no-select', selected && CLASSNAMES.rowSelected )}
         ref={row => { this.row = row }}
-        style={{...style}}
+        style={{
+          cursor: onClick && 'pointer',
+          ...style
+        }}
+        onClick={e => {          
+          onClick()
+        }}
         onMouseLeave={() => {
           if (actionToggled) {
             this.setState({ actionToggled: false })
@@ -100,7 +117,8 @@ class Row extends Component<*, *> {
       return (
         <td
           className={CLASSNAMES.rowData}
-          onClick={() => {
+          onClick={e => {
+            e.stopPropagation()
             this.setState({ toggled: !toggled })
             onToggle()
           }}
@@ -134,14 +152,15 @@ class Row extends Component<*, *> {
           />
           {
             actionToggled ? <span
-              className={classes(CLASSNAMES.actionDialog, ANIMATIONS.fadeInUp)}
+              className={classes(CLASSNAMES.actionDialog)}
             >
               {
                 actions.map((element, key) => {
                   if (element) {
                     return React.cloneElement(element, {
                       key,
-                      onClick: () => {
+                      onClick: e => {
+                        e.stopPropagation()
                         if (element.props.onClick) {
                           element.props.onClick()
                         }
@@ -198,6 +217,9 @@ const CLASSNAMES = stylesheet({
     boxShadow: '1px 1px 1px 1px rgba(0,0,0,0.1)',
     padding: '10px 0 !important',
     zIndex: 2000
+  },
+  rowSelected: {
+    borderLeft: `4px solid ${THEME().colors.button.primary.background}`,
   }
 })
 
