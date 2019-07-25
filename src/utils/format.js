@@ -10,7 +10,20 @@
  */
 
 /** Month names */
-export const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+export const MONTH_NAMES = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec'
+]
 
 export const monthDiff = (date1: Date, date2: Date) => {
   let months
@@ -34,7 +47,10 @@ type formatDateParam = {
   seconds?: boolean
 }
 
-export const formatDate = (dateString: string | Date, display: formatDateParam) => {
+export const formatDate = (
+  dateString: string | Date,
+  display: formatDateParam
+) => {
   const date = new Date(dateString)
   const year = date.getFullYear()
   const monthIndex = date.getMonth()
@@ -55,7 +71,7 @@ export const formatDate = (dateString: string | Date, display: formatDateParam) 
   let meridiem = AM
   let formattedDate = ''
 
-  if (hours > 12 ) {
+  if (hours > 12) {
     hours = Math.round(hours - 12)
     meridiem = PM
   }
@@ -76,13 +92,13 @@ export const formatDate = (dateString: string | Date, display: formatDateParam) 
     seconds = `0${seconds}`
   }
 
-  if(display.month) {
+  if (display.month) {
     formattedDate += `${MONTH_NAMES[monthIndex]} `
   }
-  if(display.day) {
+  if (display.day) {
     formattedDate += `${day}, `
   }
-  if(display.year) {
+  if (display.year) {
     formattedDate += `${year} `
   }
   if (display.time) {
@@ -96,6 +112,19 @@ export const formatDate = (dateString: string | Date, display: formatDateParam) 
   return formattedDate
 }
 
+export const formatFrequency = (days: number) => {
+  switch (days) {
+    case 1:
+      return 'Daily'
+    case 7:
+      return 'Weekly'
+    case 14:
+      return 'Bi-Weekly'
+    default:
+      return 'Monthly'
+  }
+}
+
 export const formatTime = (time: string) => {
   const splitted = time.split(':')
 
@@ -103,7 +132,7 @@ export const formatTime = (time: string) => {
   let minutes = parseInt(splitted[1])
   let meridiem = AM
 
-  if (hours > 12 ) {
+  if (hours > 12) {
     hours = Math.round(hours - 12)
     meridiem = PM
   }
@@ -123,7 +152,9 @@ export const formatTime = (time: string) => {
  * Turn float to formatted price
  */
 export const formatPrice = (price: number, sign: boolean = true) => {
-  return `${sign ? '$' : ''}${Number(price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}`
+  return `${sign ? '$' : ''}${Number(price)
+    .toFixed(2)
+    .replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}`
 }
 
 /**
@@ -166,7 +197,10 @@ export const normalizePhone = (value: String) => {
   if (onlyNums.length <= 7) {
     return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3)}`
   }
-  return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3, 6)}-${onlyNums.slice(6, 10)}`
+  return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3, 6)}-${onlyNums.slice(
+    6,
+    10
+  )}`
 }
 
 export const normalizeTime = (value: String) => {

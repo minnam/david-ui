@@ -12,7 +12,11 @@ import Cards from './cards/cards'
 import Checkbox from './checkbox/checkbox'
 import DateTimePicker from './date-time-picker/date-time-picker'
 import DebounceInput from './debounce-input/debounce-input'
-import Dialog, { DialogPanel, ModalDialogPanel, DialogTitle } from './dialog/dialog'
+import Dialog, {
+  DialogPanel,
+  ModalDialogPanel,
+  DialogTitle
+} from './dialog/dialog'
 import Dropbox from './dropbox/dropbox'
 import DropdownList from './dropdown/dropdown'
 import ErrorDialog from './error-dialog/error-dialog'
@@ -31,6 +35,7 @@ import Subheader from './subheader/subheader'
 import Subtitle from './subtitle/subtitle'
 import TextField from './text-field/text-field'
 import Toggle from './toggle/toggle'
+import AutoSuggest from './autosuggest/autosuggest'
 import {
   Toolbar,
   ToolbarBreak,
@@ -43,14 +48,7 @@ import {
   ToolbarTitleContainer
 } from './toolbar'
 import validation from './validation'
-import {
-  Col,
-  Row,
-  RowActionButton,
-  Search,
-  Table,
-  TableNav,
-} from './table'
+import { Col, Row, RowActionButton, Search, Table, TableNav } from './table'
 import FilterWrapper from './filter-wrapper/filter-wrapper'
 import ANIMATIONS from './utils/animations'
 import {
@@ -85,6 +83,7 @@ export {
   normalizeTime,
   THEME,
   Avatar,
+  AutoSuggest,
   Button,
   Cards,
   Checkbox,
