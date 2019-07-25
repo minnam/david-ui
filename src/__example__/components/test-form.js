@@ -10,6 +10,7 @@ import {
   Cards,
   Col,
   Dropbox,
+  DebounceInput,
   DateTimePicker,
   DropdownList,
   Form,
@@ -113,6 +114,27 @@ class TestForm extends Component {
               name={'roll'}
               component={Roll}
               model={ROLL_MODEL}
+            />
+            <Field
+              label='Vendor'
+              name='supplier'
+              // component={TextField}
+              component={DebounceInput}
+              generateLabel={model => {
+                return `${model['supplier']}`
+              }}
+              callback={(value, onFinish) => {
+                onFinish([
+                  {
+                    supplier: 'test'
+                  },
+                  {
+                    supplier: 'test1'
+                  }
+                ])
+              }}
+              allowText
+              isRequired
             />
           </FormSection>
           <FieldArray

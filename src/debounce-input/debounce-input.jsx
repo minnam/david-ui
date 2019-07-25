@@ -162,12 +162,19 @@ export default class DebounceInput extends React.Component<*,*> {
     this.setState({ index: -1 })
   }
 
-  handleBlur = () => {
+  handleBlur = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    const { allowText } = this.props
+
     this.setState({ focused: false })
-    if (this.state.index < -1) {
-      this.setState({value: ''})
-      this.props.input.onChange('')
-    }
+
+    if (allowText) {
+      this.props.input.onChange(event.target.value)
+    } else {
+      if (this.state.index < -1) {
+        this.setState({value: ''})
+        this.props.input.onChange('')
+      }
+    }      
   }
 
   handleFocus = () => {
@@ -215,7 +222,7 @@ export default class DebounceInput extends React.Component<*,*> {
   }
 
   handleItemClick = (index: number) => {
-    const { input, generateLabel } = this.props
+    const { allowText, input, generateLabel } = this.props
     const { data } = this.state
 
     this.setState({ index })
@@ -225,7 +232,13 @@ export default class DebounceInput extends React.Component<*,*> {
       selected: true,
       value: generateLabel(data[index])// Displayed in input field
     })
-    input.onChange(data[index])
+
+    if (allowText) {
+      input.onChange(generateLabel(data[index]))
+    } else {
+      input.onChange(data[index])
+    }
+    
   }
 
   debounce = () => {
