@@ -142,12 +142,12 @@ export default class DebounceInput extends React.Component<*,*> {
   }
 
   componentDidMount () {
-    const { input, generateLabel } = this.props
+    const { allowText, input, generateLabel } = this.props
     if (input.value) {
       this.setState({
         data: [ input.value ],
         index: 0,
-        value: generateLabel(input.value),
+        value: allowText ? input.value : generateLabel(input.value),
         selected: true
       })
     }
