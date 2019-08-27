@@ -41,13 +41,13 @@ export default class DropDown extends React.Component<*, *> {
     const {
       data,
       generateLabel,
+      helpbox,
       horizontal,
       input,
       isRequired,
       label,
       meta,
       onFilterChange,
-      helpbox
     } = this.props
 
     if (generateLabel) {

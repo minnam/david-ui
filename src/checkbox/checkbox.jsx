@@ -41,6 +41,7 @@ export default class Checkbox extends React.Component<*, *> {
   }
 
   componentWillMount () {
+    console.log('mount', this.props.meta)
     if (this.props && this.props.meta) {
       this.setState({
         checked: this.props.meta.initial
@@ -64,7 +65,7 @@ export default class Checkbox extends React.Component<*, *> {
       checked
     } = this.state
 
-    const boxStatusClass = classes(hover && 'hover', checked && 'checked', active && 'active')
+    const boxStatusClass = classes(hover && 'hover', input.value && 'checked', active && 'active')
 
     return (
       <FieldWrapper
@@ -84,15 +85,15 @@ export default class Checkbox extends React.Component<*, *> {
           onMouseLeave={() => { this.setState({ hover: false }) }}
           onMouseUp={() => { 
             this.setState({ 
-              checked: !checked, active: false 
+              active: false 
             }, () => {
-              input.onChange(this.state.checked)
+              input.onChange(!input.value)
             }) 
           }}
         >
           <div className={classes(CLASSNAMES.checkboxWrapper)}>
             <span className={classes('checkbox', boxStatusClass)}>
-              { checked && <i className="material-icons">check</i> }
+              { input.value && <i className="material-icons">check</i> }
             </span>
             <input
               id={`jams-${input.name}`}

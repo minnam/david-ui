@@ -64,11 +64,12 @@ export default class DebounceInput extends React.Component<*,*> {
   render () {
     const {
       errorClassName,
-      input,
       generateLabel,
+      input,
       inputClassName = '',
       inputStyle,
       inputWrapperClassName,
+      isRequired,
       label,
       labelClassName,
       labelStyle,
@@ -91,6 +92,7 @@ export default class DebounceInput extends React.Component<*,*> {
         errorClassName={errorClassName}
         id={input.name}
         inputWrapperClassName={inputWrapperClassName}
+        isRequired={isRequired}
         label={label}
         labelClassName={labelClassName}
         labelStyle={labelStyle}

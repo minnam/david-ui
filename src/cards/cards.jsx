@@ -150,7 +150,7 @@ class Cards extends Component<*, *> {
             window.scrollTo(0, window.scrollY + formBoundingRect.y + formBoundingRect.height - window.innerHeight / 2)
             fields.push({
               type: key,
-              value: {}
+              // value: {}
             })
           }}
         />
@@ -159,7 +159,7 @@ class Cards extends Component<*, *> {
 
     return (
       <FormSection
-        title={label}
+        title={`${label}${fields.length !== 0 ? ` (${fields.length})` : ''}`}
         tools={tools}
         noPadding={noPadding}
         fixedHeader={!disableFixedHeader}
@@ -297,7 +297,7 @@ class Cards extends Component<*, *> {
   renderFields (modelFields: CardModelsType, field: string, key: number) {
     const { data, fields, resetFilterField } = this.props
 
-    if (fields.length === 0) {
+    if (fields.length === 0 || modelFields === undefined) {
       return null
     }
 
@@ -420,6 +420,7 @@ class Cards extends Component<*, *> {
           name={`${field}.value.${modelField.name}`}
           placeholder={modelField.placeHolder}
           searchKey={modelField.searchKey}
+          isRequired={modelField.isRequired}
           type='text'
           url={modelField.url}
           validate={modelField.validate}
@@ -481,6 +482,7 @@ class Cards extends Component<*, *> {
             displayTime={false}
             type='text'
             validate={modelField.validate}
+            isRequired={modelField.isRequired}
             key={key2}
           />
         )

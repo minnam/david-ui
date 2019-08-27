@@ -4,29 +4,51 @@ export const TEST_CARD_MODEL = {
   test: {
     label: 'test',
     heading: 'Test',
-    fields: [
-      {
-        label: 'Name',
-        name: 'name',
-        placeHolder: 'Enter Name',
-        type: 'TextField'
-      },
-      {
-        label: 'Description',
-        name: 'description',
-        type: 'Quill'
-      },
-      {
-        label: 'Collection Test',
-        name: 'collectionTest',
-        type: 'DropdownList',
-        data: WEATHER_TYPES,
-        // elements in data determine what passes through filter
-        collect: { key: 'label', data: ['label'] },
-        generateLabel: model => {
-          return model['label']
+    form: [
+      [
+        {
+          label: 'Name',
+          name: 'name',
+          placeHolder: 'Enter Name',
+          type: 'TextField'
+        },
+        {
+          label: 'Description',
+          name: 'description',
+          type: 'Quill'
         }
-      }
+      ],
+      [
+        {
+          label: 'Quantaties',
+          name: 'quantaties',
+          type: 'Cards',
+          style: {
+            height: 451,
+            maxHeight: '100%',
+            overflow: 'auto'
+          },
+          model: {
+            trades: {
+              heading: 'Item',
+              label: 'Add Quantaty',
+              fields: [
+                {
+                  label: 'Removed',
+                  name: 'removed',
+                  type: 'Checkbox',
+                  style: {
+                    display: 'inline-block',
+                    float: 'left',
+                    marginRight: 15,
+                    width: 'initial',
+                  }
+                },
+              ]
+            }
+          }
+        }
+      ]
     ]
-  }
+  },  
 }

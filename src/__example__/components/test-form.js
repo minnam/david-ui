@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 
 /* Components =================================================================================== */
 import {
+  AutoSuggest,
   Cards,
   Col,
   Dropbox,
