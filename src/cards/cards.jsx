@@ -150,7 +150,7 @@ class Cards extends Component<*, *> {
             window.scrollTo(0, window.scrollY + formBoundingRect.y + formBoundingRect.height - window.innerHeight / 2)
             fields.push({
               type: key,
-              // value: {}
+              value: {}
             })
           }}
         />
@@ -297,7 +297,7 @@ class Cards extends Component<*, *> {
   renderFields (modelFields: CardModelsType, field: string, key: number) {
     const { data, fields, resetFilterField } = this.props
 
-    if (fields.length === 0 || modelFields === undefined) {
+    if (fields.length === 0) {
       return null
     }
 
