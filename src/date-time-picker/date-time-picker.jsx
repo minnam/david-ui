@@ -128,6 +128,9 @@ export default class DateTimePicker extends React.Component<* , *> {
             setMonth={month => {
               this.setMonth(month)
             }}
+            setYear={year => {
+              this.setYear(year)
+            }}
             setDayInMonth={day => {
               this.setDayInMonth(day)
               this.setState({
@@ -176,6 +179,20 @@ export default class DateTimePicker extends React.Component<* , *> {
     const { selectedDate } = this.state
 
     selectedDate.setMonth(month)
+    this.setState({selectedDate})
+    input.onChange(formatDate(selectedDate, { month: true, day: true, year: true, time: displayTime }))
+  }
+
+  /**
+   * Sets the month to a given value.
+   *
+   * @param {number} month
+   */
+  setYear (year: number) {
+    const { input, displayTime = true } = this.props
+    const { selectedDate } = this.state
+
+    selectedDate.setYear(year)
     this.setState({selectedDate})
     input.onChange(formatDate(selectedDate, { month: true, day: true, year: true, time: displayTime }))
   }

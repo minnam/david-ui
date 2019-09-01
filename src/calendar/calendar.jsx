@@ -14,6 +14,7 @@ import { stylesheet, classes } from 'typestyle'
 
 /* Common ======================================================================================= */
 import { formatDate } from '../utils/format'
+import ANIMATIONS from '../utils/animations'
 import THEME from '../theme-handler.js'
 
 /* Components =================================================================================== */
@@ -23,8 +24,19 @@ import Day from './day'
 const MAX_WEEKS = 6
 const WEEK_LENGTH = 7
 
+const test = [
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+]
+
 /* <Calendar /> ================================================================================= */
-export default class Calendar extends Component<* , *> {
+export default class Calendar extends Component<* , *> {  
   // Prop types
   props: {
     /** The currently selected day of the month. */
@@ -39,15 +51,85 @@ export default class Calendar extends Component<* , *> {
     setMonth: (month: number) => void
   }
 
+  state = {
+    toggledYearView: false
+  }
+
   /**
    * Renders the calendar with heading and navbar.
    */
   render () {
     return (
-      <div className={'no-select'}>
+      <div 
+        className={'no-select'}
+        style={{
+          position: 'relative'
+        }}
+      >
         {this.displayNav()}
         {this.displayDayLabels()}
         {this.populateCalendar()}
+        {
+          (() => {
+            if (this.state.toggledYearView) {
+              const currentYear = this.state.year || this.props.year 
+              const years = []
+
+              for (let i = currentYear - 3; i < currentYear + 3; i++) {
+                years.push(i)
+              }
+
+              return <div 
+                style={{
+                  position: 'absolute',
+                  display: 'inline-block',
+                  width: 350,
+                  height: 401,
+                  top: 0,
+                  left: 0,
+                  background: 'white'
+                }}
+                className={ANIMATIONS.fadeInDown}
+              >
+                {this.displayYearNavButton(
+                  <i className='material-icons'>keyboard_arrow_up</i>,
+                  () => {
+                    this.setState({
+                      year: currentYear - 6
+                    })
+                  }
+                )}
+                {
+                  years.map((year, key) => {
+                    return React.cloneElement(
+                      this.displayYearNavButton(
+                        year,
+                        () => {
+                          this.props.setYear(year)
+                          this.setState({
+                            toggledYearView: false,
+                            year: null
+                          })
+                        }
+                      ), {
+                        key
+                      }
+                    )
+                  })
+                }
+                {this.displayYearNavButton(
+                  <i className='material-icons'>keyboard_arrow_down</i>,
+                  () => {
+                    this.setState({
+                      year: currentYear + 6
+                    })
+                  }
+                )}      
+              </div>
+            }
+          })()
+        }        
+ 
       </div>
     )
   }
@@ -86,7 +168,14 @@ export default class Calendar extends Component<* , *> {
     return (
       <div className={CLASSNAMES.navbarBase}>
         {this.displayNavButton('navigate_before', () => setMonth(month - 1))}
-        <span className={CLASSNAMES.navbarHeading}>
+        <span 
+          className={CLASSNAMES.navbarHeading}
+          onClick={() => {
+            this.setState({
+              toggledYearView: true
+            })
+          }}  
+        >
           {formatDate(new Date(year, month), {year: true, month: true, day: false, time: false})}
         </span>
         {this.displayNavButton('navigate_next', () => setMonth(month + 1))}
@@ -113,6 +202,15 @@ export default class Calendar extends Component<* , *> {
         {icon}
       </i>
     )
+  }
+
+  displayYearNavButton (content, onClick) {
+    return <div
+      className={CLASSNAMES.yearNavButton}
+      onClick={onClick}
+    >
+      {content}
+    </div> 
   }
 
   /**
@@ -190,6 +288,7 @@ const CLASSNAMES = stylesheet({
   navbarHeading: {
     fontSize: 15,
     fontWeight: 700,
+    cursor: 'pointer'
   },
   dayLabel: {
     display: 'table-cell',
@@ -202,4 +301,17 @@ const CLASSNAMES = stylesheet({
   dayLabelBase: {
     borderBottom: `1px solid ${THEME().colors.borders.primary}`,
   },
+  yearNavButton: {
+    width: '100%',
+    height: 50,
+    textAlign: 'center',
+    fontSize: 17,
+    cursor: 'pointer',
+    $nest: {
+      '&:hover': {
+        color: 'rgb(180,180,180)',
+        transition: '.25s all'
+      }
+    }
+  }
 })
