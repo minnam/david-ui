@@ -280,12 +280,14 @@ class Cards extends Component<*, *> {
       if (nextProps.fields.getAll()) {
         nextProps.fields.getAll().map(field => {
           for (const key in filterTargets) {
-            const value = field.value[filterTargetKey]
-            const target = filterTargets[key][filterTargetKey]
-  
-            if (value && target && value._id === filterTargets[key][filterTargetKey]._id) {
-              newFilterTargets.push({ [filterTargetKey]: value })
-            }
+            if (field.value) {
+              const value = field.value[filterTargetKey]
+              const target = filterTargets[key][filterTargetKey]
+    
+              if (value && target && value._id === filterTargets[key][filterTargetKey]._id) {
+                newFilterTargets.push({ [filterTargetKey]: value })
+              }
+            }            
           }
         })
       }
@@ -294,7 +296,7 @@ class Cards extends Component<*, *> {
     }
   }
 
-  renderFields (modelFields: CardModelsType, field: string, key: number) {
+  renderFields (modelFields: CardModelsType = [], field: string, key: number) {
     const { data, fields, resetFilterField } = this.props
 
     if (fields.length === 0) {

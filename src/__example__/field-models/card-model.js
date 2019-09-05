@@ -34,16 +34,17 @@ export const TEST_CARD_MODEL = {
               label: 'Add Quantaty',
               fields: [
                 {
-                  label: 'Removed',
-                  name: 'removed',
-                  type: 'Checkbox',
-                  style: {
-                    display: 'inline-block',
-                    float: 'left',
-                    marginRight: 15,
-                    width: 'initial',
-                  }
+                  label: 'Date Added',
+                  name: 'dateAdded',
+                  type: 'DateTimePicker',
+                  isRequired: true,
+                  defaultValue: new Date()
                 },
+                {
+                  label: 'Date Removed',
+                  name: 'dateRemoved',
+                  type: 'DateTimePicker',
+                },                
               ]
             }
           }
