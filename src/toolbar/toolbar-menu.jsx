@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { stylesheet } from 'typestyle'
+import { stylesheet, classes } from 'typestyle'
 
 class ToolbarMenu extends React.Component {
     state = {
@@ -36,6 +36,7 @@ class ToolbarMenu extends React.Component {
                   >
                     <div className={CLASSNAMES.menuLabel }>
                       { heading }
+                      { !submenu && <i className={classes('material-icons', CLASSNAMES.hoverArrow)}>keyboard_arrow_down</i> }
                       { submenu && <i className={ 'material-icons' }>arrow_right</i> }
                     </div>
                   </Link>
@@ -47,6 +48,7 @@ class ToolbarMenu extends React.Component {
                   onClick={ onClick }
                 >
                   { heading }
+                  { !submenu && <i className={classes('material-icons', CLASSNAMES.hoverArrow)}>keyboard_arrow_down</i> }
                   { submenu && <i className={ 'material-icons' }>arrow_right</i> }
                 </div>
               )
@@ -102,4 +104,9 @@ const CLASSNAMES = stylesheet({
       },
     }
   },
+  hoverArrow: {
+    fontSize: 18,
+    marginLeft: 5,
+    color: 'rgb(160,160,160)'
+  }
 })

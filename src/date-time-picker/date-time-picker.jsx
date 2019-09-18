@@ -102,9 +102,14 @@ export default class DateTimePicker extends React.Component<* , *> {
             this.setState({toggled: true})
           }}
           onBlur={() => {
-            const nextDate = isNaN(new Date(input.value)) ? selectedDate : new Date(input.value)
-            input.onChange(formatDate(nextDate, { month: true, day: true, year: true, time: displayTime }))
-            this.setState({selectedDate: nextDate, toggled: !!hovered})
+            if (isNaN(input.value)) {
+              input.onChange(null)
+              this.setState({ toggled: !!hovered })
+            } else {
+              const nextDate = isNaN(new Date(input.value)) ? selectedDate : new Date(input.value)
+              input.onChange(formatDate(nextDate, { month: true, day: true, year: true, time: displayTime }))
+              this.setState({selectedDate: nextDate, toggled: !!hovered})
+            }            
           }}
         />
         <div
